@@ -1,0 +1,3 @@
+#!/bin/sh
+tmux new-session -d -s rando
+tmux rename-window 'rando'
