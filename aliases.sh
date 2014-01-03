@@ -1,5 +1,5 @@
+alias l='ls -l'
 alias ls='ls --color'
-alias ll='ls -l'
 alias la='ls -la'
 
 alias rld='source ~/config/aliases.sh'
@@ -12,6 +12,7 @@ alias tit='source ~/config/tmux/std-setup'
 
 alias sys='cd ~/hacking/systems'
 alias sd='cd ~/hacking/softdev'
+alias hk='cd ~/hacking'
 
 alias gp='git push'
 alias gl='git pull'
@@ -24,5 +25,5 @@ alias gcl='git clone'
 
 alias spfy='spotify 2> /dev/null > /dev/null &'
 alias groove='vlc ~/music/groovesalad.pls 2> /dev/null > /dev/null &'
-alias flux='~/tools/xflux'
 alias stm='steam 2> /dev/null > /dev/null &'
+alias tmux='tmux -2'
