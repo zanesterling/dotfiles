@@ -47,3 +47,5 @@ alias antr='ant run'
 alias bar='ant bar'
 
 alias homer='ssh -x zane.sterling@homer.stuy.edu'
+
+alias cdiff='colordiff'

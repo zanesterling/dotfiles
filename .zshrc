@@ -1,6 +1,6 @@
 # Set up the prompt
 source ~/.zsh/git-prompt/zshrc.sh
-export PROMPT=' %# '
+export PROMPT=' $(HOSTNAME) %# '
 export RPROMPT='$(git_super_status) %~'
 
 setopt histignorealldups sharehistory
@@ -22,7 +22,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
