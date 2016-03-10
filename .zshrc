@@ -37,4 +37,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 source ~/config/aliases.sh
     
 # 256color support for tmux
+export CLICOLOR=1
 [ -n "$TMUX" ] && export TERM='screen-256color'
+
+export MACOSX_DEPLOYMENT_TARGET=10.4 
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+
+export PYTHONPATH='${PYTHONPATH}:/usr/local/lib/python2.7/site-packages'
