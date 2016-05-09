@@ -44,7 +44,7 @@ alias b='gb'
 alias ca='c -a'
 alias sd='s;echo;d'
 alias st='gst'
-alias pupstm='p --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias pupstm='p -u origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias tmux='tmux -2'
 alias ta='tmux attach'
@@ -58,3 +58,4 @@ alias homer='ssh -x zane.sterling@homer.stuy.edu'
 
 alias cdiff='colordiff'
 alias mongboot='mongod --fork --logpath ~/tmp/mongod.log'
+alias clean='make clean'
