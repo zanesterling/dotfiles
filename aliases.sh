@@ -1,19 +1,17 @@
+alias e='$EDITOR'
+
 alias l='ls -lh'
 alias ls='ls -G'
 alias la='ls -la'
 
 alias grep='grep --color'
+alias grepc='grep --color=always'
+alias grepn='grep --color=never'
 
 alias rld='source ~/.zshrc'
 alias fix='vim ~/config/aliases.sh'
 alias zfix='vim ~/.zshrc'
 alias vfix='vim ~/.vimrc'
-
-alias cc='source ~/config/tmux/start-cc'
-alias cw='source ~/config/tmux/start-wc'
-alias cf='source ~/config/tmux/start-fc'
-alias e='source ~/config/tmux/end'
-alias tit='source ~/config/tmux/std-setup'
 
 alias hk='cd ~/hacking'
 alias tmp='cd ~/tmp'
@@ -55,6 +53,7 @@ alias antr='ant run'
 alias bar='ant bar'
 
 alias homer='ssh -x zane.sterling@homer.stuy.edu'
+alias rando='ssh rando'
 
 alias cdiff='colordiff'
 alias mongboot='mongod --fork --logpath ~/tmp/mongod.log'
