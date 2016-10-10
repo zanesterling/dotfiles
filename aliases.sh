@@ -63,6 +63,7 @@ alias dubdc='dub --compiler=ldc2'
 
 alias i386-gcc='gcc-5'
 alias t='task'
+alias ts='task sync'
 alias tw='timew'
 
 check_in() {
@@ -72,3 +73,15 @@ check_in() {
 check_out() {
 	rm -f ~/config/checked-in
 }
+
+is_checked_in() {
+	if [ -f ~/config/checked-in ]; then
+		echo checked in
+	else
+		echo checked out
+	fi
+}
+
+alias ci='check_in'
+alias co='check_out'
+alias ici='is_checked_in'
