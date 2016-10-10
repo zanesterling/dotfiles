@@ -15,6 +15,7 @@ alias vfix='vim ~/.vimrc'
 
 alias hk='cd ~/hacking'
 alias tmp='cd ~/tmp'
+alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
 alias gp='git push'
 alias gl='git pull'
@@ -58,3 +59,16 @@ alias rando='ssh rando'
 alias cdiff='colordiff'
 alias mongboot='mongod --fork --logpath ~/tmp/mongod.log'
 alias clean='make clean'
+alias dubdc='dub --compiler=ldc2'
+
+alias i386-gcc='gcc-5'
+alias t='task'
+alias tw='timew'
+
+check_in() {
+	touch ~/config/checked-in
+}
+
+check_out() {
+	rm -f ~/config/checked-in
+}
