@@ -1,8 +1,8 @@
 alias e='$EDITOR'
 
-alias l='ls -lh'
-alias ls='ls -G'
-alias la='ls -la'
+alias l='ls -lhG'
+alias la='l -a'
+alias ll='la'
 
 alias grep='grep --color'
 alias grepc='grep --color=always'
@@ -12,6 +12,9 @@ alias rld='source ~/.zshrc'
 alias fix='vim ~/config/aliases.sh'
 alias zfix='vim ~/.zshrc'
 alias vfix='vim ~/.vimrc'
+alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
+alias tfix='vim ~/.tmux.conf'
+alias sfix='vim ~/.ssh/config'
 
 alias hk='cd ~/hacking'
 alias tmp='cd ~/tmp'
@@ -61,16 +64,19 @@ alias mongboot='mongod --fork --logpath ~/tmp/mongod.log'
 alias clean='make clean'
 alias dubdc='dub --compiler=ldc2'
 
+alias od='objdump -x86-asm-syntax=intel'
 alias i386-gcc='gcc-5'
-alias t='task'
-alias ts='task sync'
-alias tw='timew'
+alias tw='task -low'
+alias twa='task'
+alias twl='task +low'
+alias tws='task sync'
 
 check_in() {
 	touch ~/config/checked-in
 }
 
 check_out() {
+	~/config/open-journal.sh
 	rm -f ~/config/checked-in
 }
 
@@ -85,3 +91,4 @@ is_checked_in() {
 alias ci='check_in'
 alias co='check_out'
 alias ici='is_checked_in'
+alias note='vim -C "call vimwiki#diary#make_note(v:count1)" + -c "r \!date \"+\\%n= \\%H:\\%M=\\%n\""'
