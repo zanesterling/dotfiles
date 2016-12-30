@@ -66,10 +66,13 @@ alias dubdc='dub --compiler=ldc2'
 
 alias od='objdump -x86-asm-syntax=intel'
 alias i386-gcc='gcc-5'
-alias tw='task -low'
+
+alias tw='task -low -private'
 alias twa='task'
+alias twd='task add'
 alias twl='task +low'
 alias tws='task sync'
+alias next='task next +next'
 
 check_in() {
 	touch ~/config/checked-in
