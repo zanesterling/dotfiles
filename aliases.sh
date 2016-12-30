@@ -94,4 +94,8 @@ is_checked_in() {
 alias ci='check_in'
 alias co='check_out'
 alias ici='is_checked_in'
-alias note='vim -C "call vimwiki#diary#make_note(v:count1)" + -c "r \!date \"+\\%n= \\%H:\\%M=\\%n\""'
+note() {
+	vim -c 'silent call vimwiki#diary#make_note(v:count1)' + -c 'r !date "+\%n= \%H:\%M =\%n"'
+}
+
+alias rustdoc='open /usr/local/share/doc/rust/html/index.html'
