@@ -3,6 +3,7 @@ alias e='$EDITOR'
 alias l='ls -lhG'
 alias la='l -a'
 alias ll='la'
+alias lt='l -t'
 
 alias grep='grep --color'
 alias grepc='grep --color=always'
@@ -16,8 +17,9 @@ alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='vim ~/.tmux.conf'
 alias sfix='vim ~/.ssh/config'
 
-alias hk='cd ~/hacking'
+alias hk='cd ~/dev/projects'
 alias tmp='cd ~/tmp'
+alias tempfile=''
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
 alias gp='git push'
@@ -47,6 +49,8 @@ alias ca='c -a'
 alias sd='s;echo;d'
 alias st='gst'
 alias pupstm='p -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias pupstrm='p -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias drop='git checkout --'
 
 alias tmux='tmux -2'
 alias ta='tmux attach'
@@ -67,12 +71,23 @@ alias dubdc='dub --compiler=ldc2'
 alias od='objdump -x86-asm-syntax=intel'
 alias i386-gcc='gcc-5'
 
-alias tw='task -low -private'
+alias tw_most='task -low -private'
+alias twm='tw_most -outside ready'
+alias twnt='task -must -should ready'
 alias twa='task'
 alias twd='task add'
-alias twl='task +low'
 alias tws='task sync'
-alias next='task next +next'
+alias next='task list +next'
+alias nx='next'
+alias frost='task project:frost'
+
+tw() {
+	if [ $# -eq 0 ]
+		then tw_most list
+	else
+		tw_most $@
+	fi
+}
 
 check_in() {
 	touch ~/config/checked-in
@@ -94,8 +109,13 @@ is_checked_in() {
 alias ci='check_in'
 alias co='check_out'
 alias ici='is_checked_in'
+
 note() {
 	vim -c 'silent call vimwiki#diary#make_note(v:count1)' + -c 'r !date "+\%n= \%H:\%M =\%n"'
 }
+alias jrnl='vim -c "silent call vimwiki#diary#make_note(v:count1)"'
+alias diary='jrnl'
 
 alias rustdoc='open /usr/local/share/doc/rust/html/index.html'
+
+alias hub=git
