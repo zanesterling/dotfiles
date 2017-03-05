@@ -74,12 +74,17 @@ alias i386-gcc='gcc-5'
 alias tw_most='task -low -private'
 alias twm='tw_most -outside ready'
 alias twnt='task -must -should ready'
+alias twr='twnt'
+alias twl='twnt'
 alias twa='task'
+alias goals='task +goal'
+
 alias twd='task add'
 alias tws='task sync'
 alias next='task list +next'
 alias nx='next'
 alias frost='task project:frost'
+alias cal='task calendar'
 
 tw() {
 	if [ $# -eq 0 ]
@@ -111,11 +116,14 @@ alias co='check_out'
 alias ici='is_checked_in'
 
 note() {
-	vim -c 'silent call vimwiki#diary#make_note(v:count1)' + -c 'r !date "+\%n= \%H:\%M =\%n"'
+	vim -c 'silent call vimwiki#diary#make_note(v:count1)' + -c 'r !date "+\%n== \%H:\%M ==\%n"'
 }
 alias jrnl='vim -c "silent call vimwiki#diary#make_note(v:count1)"'
 alias diary='jrnl'
+alias wiki='vim -c "silent call vimwiki#base#goto_index(v:count1)"'
 
 alias rustdoc='open /usr/local/share/doc/rust/html/index.html'
 
 alias hub=git
+
+alias agc='ag --color'
