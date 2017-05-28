@@ -17,9 +17,10 @@ alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='vim ~/.tmux.conf'
 alias sfix='vim ~/.ssh/config'
 
-alias hk='cd ~/dev/projects'
+alias dev='cd ~/dev'
+alias hk='dev; cd projects'
+alias school='dev; cd school'
 alias tmp='cd ~/tmp'
-alias tempfile=''
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
 alias gp='git push'
@@ -71,19 +72,15 @@ alias dubdc='dub --compiler=ldc2'
 alias od='objdump -x86-asm-syntax=intel'
 alias i386-gcc='gcc-5'
 
-alias tw_most='task -low -private'
-alias twm='tw_most -outside ready'
-alias twnt='task -must -should ready'
-alias twr='twnt'
-alias twl='twnt'
 alias twa='task'
-alias goals='task +goal'
-
+alias twl='task -must -should ready'
+alias tw_most='task -private'
 alias twd='task add'
 alias tws='task sync'
+
 alias next='task list +next'
 alias nx='next'
-alias frost='task project:frost'
+alias goals='task +goal'
 alias cal='task calendar'
 
 tw() {
@@ -91,6 +88,14 @@ tw() {
 		then tw_most list
 	else
 		tw_most $@
+	fi
+}
+
+proj() {
+	if [ $# -eq 0 ]
+		then task summary
+	else
+		tw_most project:$@
 	fi
 }
 
@@ -121,9 +126,18 @@ note() {
 alias jrnl='vim -c "silent call vimwiki#diary#make_note(v:count1)"'
 alias diary='jrnl'
 alias wiki='vim -c "silent call vimwiki#base#goto_index(v:count1)"'
+alias learn='vim ~/vimwiki/Learn.wiki' # TODO(): Find the vimwiki command to open a page.
 
 alias rustdoc='open /usr/local/share/doc/rust/html/index.html'
 
 alias hub=git
 
 alias agc='ag --color'
+
+# Python stuff
+alias ipy2='ipython2'
+alias ipy3='ipython3'
+alias venv2='~/Library/Python/2.7/bin/virtualenv'
+alias venv3='~/Library/Python/3.6/bin/virtualenv'
+alias py2='python2'
+alias py3='python3'
