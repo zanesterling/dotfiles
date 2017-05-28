@@ -1,9 +1,0 @@
-#!/bin/sh
-tmux new-session -d -s viper
-
-tmux rename-window 'edit'
-tmux new-window -t viper:1 -n 'serve' 'python -m SimpleHTTPServer'
-tmux new-window -t viper:2 -n 'term'
-
-tmux select-window -t viper:0
-tmux -2 attach-session -t viper

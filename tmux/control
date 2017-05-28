@@ -1,0 +1,27 @@
+#!/bin/sh
+
+SESNAME='control'
+
+if $(tmux has-session -t $SESNAME 2>/dev/null)
+then
+	if [[ -z $TMUX ]]
+	then
+		tmux attach-session -t $SESNAME
+	else
+		tmux switch-client -t $SESNAME
+	fi
+else
+	tmux new-session -d -s $SESNAME
+
+	tmux split-window -h
+	tmux send-keys "tw_cont +must" C-m
+	tmux split-window -v
+	tmux send-keys "tw_cont '-must -goal'" C-m
+
+	tmux select-pane -t 0
+	tmux split-window -v
+	tmux send-keys "newsbeuter" C-m
+
+	tmux select-pane -t 0
+	tmux attach-session -t $SESNAME
+fi
