@@ -37,12 +37,17 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source ~/config/aliases.sh
-    
+
 # 256color support for tmux
 export CLICOLOR=1
 [ -n "$TMUX" ] && export TERM='screen-256color'
 
-export MACOSX_DEPLOYMENT_TARGET=10.4 
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 
-export PYTHONPATH='${PYTHONPATH}:/usr/local/lib/python2.7/site-packages'
+# For sdl2 in rust
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+
+unset PYTHONPATH
+
+# Add Cargo binaries to path
+export PATH=$PATH:~/.cargo/bin:~/bin:~/config/tmux
