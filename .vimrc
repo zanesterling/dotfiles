@@ -13,9 +13,11 @@ call vundle#begin()
   " Highlighting
   Plugin 'rust-lang/rust.vim'
   Plugin 'lepture/vim-jinja'
+  "Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+
+  Plugin 'tpope/vim-dispatch'
 
   Plugin 'tpope/vim-surround'
-  Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 call vundle#end()
 filetype plugin on
 
@@ -27,8 +29,8 @@ set relativenumber
 set backspace=indent,eol,start
 syntax on
 
-set smartindent
 set noexpandtab
+set autoindent
 set copyindent
 set preserveindent
 set softtabstop=0
@@ -45,8 +47,6 @@ colorscheme solarized
 
 
 " ???
-" TODO(): Figure out what these do and categorize them
-filetype plugin on
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
@@ -59,10 +59,12 @@ au BufNewFile,BufRead *.inc  set ft=asm
 au BufNewFile,BufRead *.txt  set ft=text
 au BufNewFile,BufRead *.wiki set ft=vimwiki
 au! FileType asm     setl ft=nasm expandtab
-au! FileType python  setl nosmartindent ts=4 sw=4
-au! FileType c       setl noexpandtab ts=4 sw=4
+au! FileType python  setl ts=4 sw=4 expandtab
+au! FileType c       setl ts=4 sw=4 noexpandtab
 au! Filetype text    setl textwidth=79
 au! FileType vimwiki setl textwidth=79 expandtab
+au! Filetype haskell setl ts=2 sw=2 et sts=2
+au BufNewFile,BufRead *.cabal setl ts=2 sw=2 et sts=2
 
 
 " Relative line number toggling
@@ -99,27 +101,31 @@ let g:vimwiki_list=[{
   \ 'template_default': 'default',
   \ 'template_ext': '.html' }]
 
-  " Vimwiki-calendar integration
-  function! ToggleCalendar()
-    execute ":Calendar"
-    if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
-    end
-    else
-      let g:calendar_open = 1
-    end
+" Vimwiki-calendar integration
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+  if g:calendar_open == 1
+    execute "q"
+    unlet g:calendar_open
+  else
+    g:calendar_open = 1
+  end
+  else
+    let g:calendar_open = 1
+  end
 
-    if exists("g:calendar_open") && g:calendar_open == 1
-      setlocal nornu
-      setlocal nonu
-    end
-  endfunction
-  :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote
-  :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()
+  if exists("g:calendar_open") && g:calendar_open == 1
+    setlocal nornu
+    setlocal nonu
+  end
+endfunction
+:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<cr>
+:autocmd FileType vimwiki map <leader>cc :call ToggleCalendar()<cr>
+
+" Vimwiki auto commit and push
+:autocmd BufWritePost *.wiki :Start! /Users/Zane/config/scripts/vimwiki-add.sh /Users/Zane/vimwiki
+:autocmd QuitPre *.wiki :!/Users/zane/config/scripts/vimwiki-push.sh /Users/Zane/vimwiki
 
 
 " Latex customization
