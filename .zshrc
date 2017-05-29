@@ -5,8 +5,10 @@ export RPROMPT='$(git_super_status) %~'
 
 setopt histignorealldups sharehistory
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+export EDITOR=vim
+set -o vi
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey '' history-incremental-search-backward
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
