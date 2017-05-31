@@ -2,4 +2,4 @@
 
 read -a DOTFILES <<< $(cat homedir-files)
 
-cp $DOTFILES $HOME
+cp -R ${DOTFILES[@]} $HOME
