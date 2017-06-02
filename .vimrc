@@ -14,6 +14,7 @@ call vundle#begin()
   Plugin 'rust-lang/rust.vim'
   Plugin 'lepture/vim-jinja'
   "Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+  Plugin 'altercation/vim-colors-solarized'
 
   Plugin 'tpope/vim-dispatch'
 
