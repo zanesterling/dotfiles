@@ -36,7 +36,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-source ~/config/aliases.sh
+source ~/dotfiles/aliases.sh
 
 # 256color support for tmux
 export CLICOLOR=1
@@ -50,4 +50,4 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 unset PYTHONPATH
 
 # Add Cargo binaries to path
-export PATH=$PATH:~/.cargo/bin:~/bin:~/config/tmux
+export PATH=$PATH:~/.cargo/bin:~/bin:~/dotfiles/tmux
