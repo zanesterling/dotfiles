@@ -11,6 +11,7 @@ then
 		tmux switch-client -t $SESNAME
 	fi
 else
+	cd
 	tmux new-session -d -s $SESNAME
 
 	tmux split-window -h
