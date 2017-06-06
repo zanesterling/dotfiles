@@ -125,8 +125,9 @@ endfunction
 :autocmd FileType vimwiki map <leader>cc :call ToggleCalendar()<cr>
 
 " Vimwiki auto commit and push
-:autocmd BufWritePost *.wiki :Start! /Users/Zane/config/scripts/vimwiki-add.sh /Users/Zane/vimwiki
-:autocmd QuitPre *.wiki :!/Users/zane/config/scripts/vimwiki-push.sh /Users/Zane/vimwiki
+let g:_vw = get(g:vimwiki_list, 0)
+:autocmd BufWritePost *.wiki execute ':Start! $HOME/dotfiles/scripts/vimwiki-add.sh '  . g:_vw.path
+:autocmd QuitPre      *.wiki execute ':!      $HOME/dotfiles/scripts/vimwiki-push.sh ' . g:_vw.path
 
 
 " Latex customization
