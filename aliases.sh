@@ -10,7 +10,7 @@ alias grepc='grep --color=always'
 alias grepn='grep --color=never'
 
 alias rld='source ~/.zshrc'
-alias fix='vim ~/config/aliases.sh'
+alias fix='vim ~/dotfiles/aliases.sh'
 alias zfix='vim ~/.zshrc'
 alias vfix='vim ~/.vimrc'
 alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
