@@ -17,7 +17,7 @@
  max-items 200
 
  # external programs - ff is a firefox wrapper
- browser ff
+ browser open
 
  # display
  article-sort-order date-desc
@@ -25,10 +25,10 @@
  articlelist-format "%D %f %?T?;%-17T; ?%t"
  datetime-format %m-%d
  color background white color8
- color listnormal white black
+ color listnormal color12 color8
  color listfocus white black
  color info color12 black
- color article white black
+ color article color12 color8
 
  # interface
  confirm-exit yes
