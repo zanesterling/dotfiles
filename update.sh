@@ -2,7 +2,7 @@
 
 read -a DOTFILES <<< $(cat homedir-files)
 
-for df in ${DOTFILES[@]}
+for path in ${DOTFILES[@]}
 do
-	cp -R ../$df .
+	cp -R ../$path $path
 done

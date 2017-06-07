@@ -2,4 +2,9 @@
 
 read -a DOTFILES <<< $(cat homedir-files)
 
-cp -R ${DOTFILES[@]} $HOME
+dryrun=true
+
+for path in ${DOTFILES[@]}
+do
+	cp -R $path $HOME/$path
+done
