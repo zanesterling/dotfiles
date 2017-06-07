@@ -51,3 +51,5 @@ unset PYTHONPATH
 
 # Add Cargo binaries to path
 export PATH=$PATH:~/.cargo/bin:~/bin:~/dotfiles/tmux
+
+source ~/.zsh_local

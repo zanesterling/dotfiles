@@ -8,3 +8,5 @@ for path in ${DOTFILES[@]}
 do
 	cp -R $path $HOME/$path
 done
+
+touch $HOME/.zsh_local
