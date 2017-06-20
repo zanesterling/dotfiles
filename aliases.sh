@@ -5,9 +5,18 @@ alias la='l -a'
 alias ll='la'
 alias lt='l -t'
 
+cs() {
+	mkdir -p $1 && cd $1
+}
+
 alias grep='grep --color'
 alias grepc='grep --color=always'
 alias grepn='grep --color=never'
+
+# History search
+hs() {
+	ag $@ $HISTORY_PATH
+}
 
 alias rld='source ~/.zshrc'
 alias fix='vim ~/dotfiles/aliases.sh'
@@ -20,7 +29,7 @@ alias sfix='vim ~/.ssh/config'
 alias dev='cd ~/dev'
 alias hk='dev; cd projects'
 alias school='dev; cd school'
-alias tmp='cd ~/tmp'
+alias tmp='cs ~/tmp'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
 alias gp='git push'

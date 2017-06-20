@@ -52,4 +52,15 @@ unset PYTHONPATH
 # Add Cargo binaries to path
 export PATH=$PATH:~/.cargo/bin:~/bin:~/dotfiles/tmux
 
+# Prompt command
+export HISTORY_PATH=$HOME/.logs
+precmd() {
+	if [ "$(id -u)" -ne 0 ]
+	then
+		echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history -1)" >> $HISTORY_PATH/bash-history-$(date "+%Y-%m-%d").log
+	fi
+}
+
+
+# Run any local-specific customizations.
 source ~/.zsh_local
