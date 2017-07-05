@@ -4,6 +4,7 @@ alias l='ls -lhG'
 alias la='l -a'
 alias ll='la'
 alias lt='l -t'
+alias o='open'
 
 cs() {
 	mkdir -p $1 && cd $1
