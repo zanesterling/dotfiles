@@ -49,9 +49,6 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 unset PYTHONPATH
 
-# Add Cargo binaries to path
-export PATH=$PATH:~/.cargo/bin:~/bin:~/dotfiles/tmux
-
 # Prompt command
 export HISTORY_PATH=$HOME/.logs
 precmd() {
