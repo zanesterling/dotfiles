@@ -8,7 +8,6 @@ call vundle#begin()
   Plugin 'vim-airline/vim-airline'
   Plugin 'vimwiki/vimwiki'
   Plugin 'mattn/calendar-vim'
-  Plugin 'farseer90718/vim-taskwarrior'
 
   " Highlighting
   Plugin 'rust-lang/rust.vim'
