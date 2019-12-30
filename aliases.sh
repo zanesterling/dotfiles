@@ -1,10 +1,39 @@
-alias e='$EDITOR'
+e() {
+	emacsclient -a '' -nqc "$@" &> /dev/null || $EDITOR $@
+}
 
-alias l='ls -lhG'
+ee() {
+	emacsclient --tty "$@"
+}
+
+runapp() {
+	$@ &; disown %2
+}
+
+function swap()
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
+
+alias l='ls -lhG --color=auto'
+alias lc='l --color=always'
 alias la='l -a'
 alias ll='la'
 alias lt='l -t'
 alias o='open'
+alias c.='cd .'
+
+alias h='head -n'
+alias t='tail -n'
+alias hh='head'
+alias tt='tail'
+
+alias less='less -R'
+alias tree='tree -C'
+alias treed='tree -d'
+alias tl='tree | less'
+alias g3="pwd | sed 's/google3.*/google3/'"
 
 cs() {
 	mkdir -p $1 && cd $1
@@ -22,6 +51,7 @@ hs() {
 alias rld='source ~/.zshrc'
 alias fix='vim ~/dotfiles/aliases.sh'
 alias zfix='vim ~/.zshrc'
+alias zlfix='vim ~/.zsh_local'
 alias vfix='vim ~/.vimrc'
 alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='vim ~/.tmux.conf'
@@ -31,6 +61,7 @@ alias dev='cd ~/dev'
 alias hk='dev; cd projects'
 alias school='dev; cd school'
 alias tmp='cs ~/tmp'
+alias cleantmp='rm -rf tmp/*'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
 alias gp='git push'
@@ -151,3 +182,25 @@ alias venv2='~/Library/Python/2.7/bin/virtualenv'
 alias venv3='~/Library/Python/3.6/bin/virtualenv'
 alias py2='python2'
 alias py3='python3'
+
+# Hexadecimal input function
+writehex  ()
+{
+    local i
+    while [ "$1" ]; do
+        for ((i=0; i<${#1}; i+=2))
+        do
+            printf "\x${1:i:2}";
+        done;
+        shift;
+    done
+}
+
+alias lock='i3lock -c 000000'
+alias s2l="sed 's/ /\\n/g'"
+
+j() {
+	javac $1.java -d .
+	java com.foo.$1
+	rm -rf com
+}
