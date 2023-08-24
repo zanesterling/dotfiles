@@ -25,3 +25,11 @@ fi
 
 # 2.2 Install packages using Vundle.
 vim +PluginInstall +qall
+
+
+## 3.0 ZSH setup
+# 3.1 Create directory for logs.
+mkdir -p ~/.logs
+
+# 3.2 Install needed packages.
+sudo apt install python tmux

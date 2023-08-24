@@ -1,6 +1,6 @@
 # Set up the prompt
 source ~/.zsh/git-prompt/zshrc.sh
-export PROMPT=' $(HOSTNAME) %F{blue}%#%f '
+export PROMPT=' $(hostname) %F{blue}%#%f '
 export RPROMPT='$(git_super_status) %~'
 
 setopt histignorealldups sharehistory
