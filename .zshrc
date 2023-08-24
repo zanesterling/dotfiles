@@ -1,5 +1,5 @@
 # Set up the prompt
-source ~/.zsh/git-prompt/zshrc.sh
+source ~/.zsh/zsh-git-prompt/zshrc.sh
 export PROMPT=' $(hostname) %F{blue}%#%f '
 export RPROMPT='$(git_super_status) %~'
 

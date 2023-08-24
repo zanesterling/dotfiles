@@ -33,3 +33,10 @@ mkdir -p ~/.logs
 
 # 3.2 Install needed packages.
 sudo apt install python tmux
+
+# 3.3 Set up zsh-git-prompt.
+mkdir -p ~/.zsh/
+if [ ! -d ~/.zsh/zsh-git-prompt ]
+then
+	git clone http://github.com/zsh-git-prompt/zsh-git-prompt ~/.zsh/zsh-git-prompt
+fi
