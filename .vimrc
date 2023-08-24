@@ -43,7 +43,7 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_visibility=256
 let g:solarized_contrast=256
-colorscheme solarized
+silent! colorscheme solarized
 
 
 " ???
