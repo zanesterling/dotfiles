@@ -1,0 +1,1 @@
+- [ ] Set up solarized + dircolors.
