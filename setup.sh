@@ -40,3 +40,8 @@ if [ ! -d ~/.zsh/zsh-git-prompt ]
 then
 	git clone http://github.com/zsh-git-prompt/zsh-git-prompt ~/.zsh/zsh-git-prompt
 fi
+
+## 4.0 Git stuff -- make sure we're on the newest version!
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
