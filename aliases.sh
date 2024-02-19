@@ -93,6 +93,7 @@ alias st='gst'
 alias pupstm='p -u origin $(git rev-parse --abbrev-ref HEAD)'
 alias pupstrm='p -u origin $(git rev-parse --abbrev-ref HEAD)'
 alias drop='git checkout --'
+alias stash='git stash --all'
 
 alias tmux='tmux -2'
 alias ta='tmux attach'
