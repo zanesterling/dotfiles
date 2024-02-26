@@ -13,7 +13,7 @@ call vundle#begin()
   Plugin 'rust-lang/rust.vim'
   Plugin 'lepture/vim-jinja'
   "Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
-  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'dracula/vim' { 'name': 'dracula' }
 
   Plugin 'tpope/vim-dispatch'
 
@@ -38,12 +38,8 @@ set shiftwidth=4
 set tabstop=4
 
 
-" Colorscheme - solarized
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_visibility=256
-let g:solarized_contrast=256
-silent! colorscheme solarized
+" Colorscheme
+silent! colorscheme dracula
 
 
 " ???
