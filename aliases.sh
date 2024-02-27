@@ -45,13 +45,14 @@ hs() {
 }
 
 alias rld='source ~/.zshrc'
-alias fix='vim ~/dotfiles/aliases.sh'
-alias zfix='vim ~/.zshrc'
-alias zlfix='vim ~/.zsh_local'
-alias vfix='vim ~/.vimrc'
-alias vwfix='vim ~/.vim/ftplugin/vimwiki.vim'
-alias tfix='vim ~/.tmux.conf'
-alias sfix='vim ~/.ssh/config'
+alias fix='e ~/dotfiles/aliases.sh'
+alias zfix='e ~/.zshrc'
+alias zlfix='e ~/.zsh_local'
+alias vfix='e ~/.vimrc'
+alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
+alias tfix='e ~/.tmux.conf'
+alias sfix='e ~/.ssh/config'
+alias dotfiles='cd ~/dotfiles'
 
 alias dev='cd ~/dev'
 alias hk='dev; cd projects'
