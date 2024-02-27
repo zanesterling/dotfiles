@@ -1,9 +1,5 @@
 e() {
-	emacsclient -a '' -nqc "$@" &> /dev/null || $EDITOR $@
-}
-
-ee() {
-	emacsclient --tty "$@"
+	$EDITOR $@
 }
 
 runapp() {
