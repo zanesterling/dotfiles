@@ -45,3 +45,7 @@ fi
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
+
+## TODO: Set up Neovim.
+### TODO: Pull from latest at github.com/neovim/neovim/releases, and put in bin folder.
+### TODO: Restore my ~/.config/nvim directory.

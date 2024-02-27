@@ -12,6 +12,8 @@ function swap()
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
 }
 
+alias nv='nvim'
+
 alias l='ls -lhG --color=auto'
 alias lc='l --color=always'
 alias la='l -a'
@@ -49,6 +51,7 @@ alias fix='e ~/dotfiles/aliases.sh'
 alias zfix='e ~/.zshrc'
 alias zlfix='e ~/.zsh_local'
 alias vfix='e ~/.vimrc'
+alias nvfix='e ~/.config/nvim/init.vim'
 alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='e ~/.tmux.conf'
 alias sfix='e ~/.ssh/config'
