@@ -57,7 +57,7 @@ rm $HOME/tmp/nvim-linux64.tar.gz
 
 ## Set up nvim config.
 mkdir -p $HOME/.config
-mv .config/nvim $HOME/.config
+cp -R .config/nvim $HOME/.config
 
 ## Install nvim plugins.
 nvim +PluginInstall +qall
