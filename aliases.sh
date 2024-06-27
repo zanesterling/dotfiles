@@ -76,7 +76,8 @@ alias gb='git branch --color'
 alias gm='git merge'
 alias gcl='git clone'
 alias gch='git checkout'
-alias glg='git log --color'
+alias glg='git log --graph --decorate --oneline --all'
+alias xl='glg'
 alias grb='git rebase'
 alias gsh='git stash'
 alias gra='git remote add'
@@ -85,6 +86,7 @@ alias s='gs'
 alias d='gd'
 alias c='gc'
 alias a='ga'
+alias up='gp'
 alias p='gp'
 alias fp='git push --force-with-lease'
 alias b='gb'
@@ -210,3 +212,5 @@ j() {
 	java com.foo.$1
 	rm -rf com
 }
+
+alias hd='hexdump'
