@@ -1,24 +1,21 @@
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin()
   " Core
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vimwiki/vimwiki'
-  Plugin 'mattn/calendar-vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vimwiki/vimwiki'
+  Plug 'mattn/calendar-vim'
 
   " Highlighting
-  Plugin 'rust-lang/rust.vim'
-  Plugin 'lepture/vim-jinja'
-  "Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
-  Plugin 'dracula/vim' { 'name': 'dracula' }
+  Plug 'rust-lang/rust.vim'
+  Plug 'lepture/vim-jinja'
+  "Plug 'LaTeX-Suite-aka-Vim-LaTeX'
+  Plug 'dracula/vim', { 'as': 'dracula' }
 
-  Plugin 'tpope/vim-dispatch'
+  Plug 'tpope/vim-dispatch'
 
-  Plugin 'tpope/vim-surround'
-call vundle#end()
+  Plug 'tpope/vim-surround'
+call plug#end()
 filetype plugin on
 
 
@@ -96,33 +93,6 @@ let g:vimwiki_list=[{
   \ 'template_path': '$HOME/vimwiki/templates',
   \ 'template_default': 'default',
   \ 'template_ext': '.html' }]
-
-" Vimwiki-calendar integration
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-  if g:calendar_open == 1
-    execute "q"
-    unlet g:calendar_open
-  else
-    g:calendar_open = 1
-  end
-  else
-    let g:calendar_open = 1
-  end
-
-  if exists("g:calendar_open") && g:calendar_open == 1
-    setlocal nornu
-    setlocal nonu
-  end
-endfunction
-:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<cr>
-:autocmd FileType vimwiki map <leader>cc :call ToggleCalendar()<cr>
-
-" Vimwiki auto commit and push
-let g:_vw = get(g:vimwiki_list, 0)
-:autocmd BufWritePost *.wiki execute ':Start! $HOME/dotfiles/scripts/vimwiki-add.sh '  . g:_vw.path
-:autocmd QuitPre      *.wiki execute ':!      $HOME/dotfiles/scripts/vimwiki-push.sh ' . g:_vw.path
 
 
 " Latex customization
