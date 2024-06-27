@@ -34,6 +34,8 @@ set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 
+set re=2 " NFA-based regex engine, should be faster than default.
+
 
 " Colorscheme
 silent! colorscheme dracula
