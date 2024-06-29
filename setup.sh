@@ -24,7 +24,7 @@ echo "${bold}2.0 Vim setup${normal}"
 echo "${bold}2.1 Install Vundle.${normal}"
 if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]
 then
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 
 echo "${bold}2.2 Install packages using Vundle.${normal}"
@@ -33,16 +33,16 @@ vim +PluginInstall +qall
 
 echo "${bold}3.0 ZSH setup${normal}"
 echo "${bold}3.1 Create directory for logs.${normal}"
-mkdir -p ~/.logs
+mkdir -p $HOME/.logs
 
 echo "${bold}3.2 Install needed packages.${normal}"
 sudo apt install python tmux
 
 echo "${bold}3.3 Set up zsh-git-prompt.${normal}"
-mkdir -p ~/.zsh/
-if [ ! -d ~/.zsh/zsh-git-prompt ]
+mkdir -p $HOME/.zsh/
+if [ ! -d $HOME/.zsh/zsh-git-prompt ]
 then
-	git clone http://github.com/zsh-git-prompt/zsh-git-prompt ~/.zsh/zsh-git-prompt
+	git clone http://github.com/zsh-git-prompt/zsh-git-prompt $HOME/.zsh/zsh-git-prompt
 fi
 
 echo "${bold}4.0 Git stuff -- make sure we're on the newest version!${normal}"
