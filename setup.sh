@@ -21,14 +21,15 @@ touch $HOME/.zsh_local
 
 
 echo "${bold}2.0 Vim setup${normal}"
-echo "${bold}2.1 Install Vundle.${normal}"
-if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]
+echo "${bold}2.1 Install vim-plug.${normal}"
+if [ ! -d "$HOME/.vim/autoload/plug.vim" ]
 then
-	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo "${bold}2.2 Install packages using Vundle.${normal}"
-vim +PluginInstall +qall
+echo "${bold}2.2 Install packages using vim-plug.${normal}"
+vim +PlugInstall +qall
 
 
 echo "${bold}3.0 ZSH setup${normal}"
