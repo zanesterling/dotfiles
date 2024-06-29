@@ -67,6 +67,16 @@ then
 	git clone http://github.com/zsh-git-prompt/zsh-git-prompt $HOME/.zsh/zsh-git-prompt
 fi
 
+{
+	echo
+	echo "${bold}3.4 Make ZSH the login shell.${normal}"
+} 2>/dev/null
+shell=$(getent passwd $LOGNAME | cut -d: -f7)
+if [ "$shell" != "$(which zsh)" ]
+then
+	sudo chsh -s "$(which zsh)" $USER
+fi
+
 
 {
 	echo; echo
