@@ -55,7 +55,7 @@ mkdir -p $HOME/.logs
 	echo
 	echo "${bold}3.2 Install needed packages.${normal}"
 } 2>/dev/null
-sudo apt install python-is-python3 tmux
+sudo apt install python-is-python3 tmux gcc
 
 {
 	echo
