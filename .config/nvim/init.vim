@@ -3,7 +3,7 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 call plug#begin()
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUppdate'}
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/playground'
 
 	Plug 'neovim/nvim-lspconfig'
