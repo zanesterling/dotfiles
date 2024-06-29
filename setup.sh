@@ -113,5 +113,5 @@ cp -R .config/nvim $HOME/.config
 	echo
 	echo "${bold}5.3 Install nvim plugins.${normal}"
 } 2>/dev/null
-$HOME/.local/bin/nvim +PluginInstall +qall
+$HOME/.local/bin/nvim +PlugInstall +qall
 
