@@ -5,7 +5,7 @@ export RPROMPT='$(git_super_status) %~'
 
 setopt histignorealldups sharehistory
 
-export EDITOR=vim
+export EDITOR=nvim
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey '' history-incremental-search-backward
@@ -57,6 +57,8 @@ precmd() {
 		echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history -1)" >> $HISTORY_PATH/bash-history-$(date "+%Y-%m-%d").log
 	fi
 }
+
+export PATH=$PATH:$HOME/.local/bin/
 
 
 # Run any local-specific customizations.
