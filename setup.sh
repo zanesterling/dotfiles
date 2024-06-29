@@ -14,7 +14,7 @@ for path in ${DOTFILES[@]}
 do
 	cp -R $path $HOME/$path
 done
-mkdir $HOME/tmp
+mkdir -p $HOME/tmp
 
 echo "${bold}1.2 If it doesn't already exist, make a file for local ZSH config.${normal}"
 touch $HOME/.zsh_local
