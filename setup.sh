@@ -115,3 +115,11 @@ cp -R .config/nvim $HOME/.config
 } 2>/dev/null
 $HOME/.local/bin/nvim +PlugInstall +qall
 
+## Todo Area
+# This section is for stuff that I haven't done yet, but want to.
+# TODO: Install obsidian.md.
+# TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
+# TODO: Install i3wm and apply my config.
+# TODO: Swap capslock and escape.
+# TODO: Set gnome-terminal color settings.
+# TODO: Adjust screen magnification.
