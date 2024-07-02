@@ -40,3 +40,9 @@ lua require('config/format_on_save')
 " These are loaded from ftplugin/FILETYPE.lua,
 " eg. ftplugin/html.lua.
 filetype plugin on
+
+" Make searching case-insensitive by default.
+set ignorecase
+" Make searching case-sensitive if the search pattern contains an uppercase
+" character.
+set smartcase
