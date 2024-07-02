@@ -22,6 +22,7 @@ filetype plugin on
 " Global defaults
 set t_Co=256
 set nocompatible
+set number
 set relativenumber
 set backspace=indent,eol,start
 syntax on
@@ -65,11 +66,11 @@ au BufNewFile,BufRead *.cabal setl ts=2 sw=2 et sts=2
 " Relative line number toggling
 function! NumberToggle()
   if(&relativenumber == 1)
-    set rnu!
+    set relativenumber!
     set number
   else
-    set nu!
     set relativenumber
+    set number!
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
