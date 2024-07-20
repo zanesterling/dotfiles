@@ -99,8 +99,10 @@ alias drop='git checkout --'
 alias stash='git stash --all'
 alias amend='c --amend'
 alias tag='git tag -a'
-alias tagl='git tag -n9'
+alias tags='git tag -n9'
 alias today='git log --date=local --since="$(date -I)T00:00"'
+alias branches='git branch -l'
+alias up='p'
 
 alias tmux='tmux -2'
 alias ta='tmux attach'
@@ -214,3 +216,8 @@ j() {
 }
 
 alias hd='hexdump'
+
+dump ()
+{
+	objdump -d -Mintel $@ | less
+}
