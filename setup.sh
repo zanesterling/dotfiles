@@ -123,3 +123,4 @@ $HOME/.local/bin/nvim +PlugInstall +qall
 # TODO: Swap capslock and escape.
 # TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
+# TODO: Set up atuin.sh for better shell history.
