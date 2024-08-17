@@ -25,6 +25,11 @@ mkdir -p $HOME/tmp
 } 2>/dev/null
 touch $HOME/.zsh_local
 
+{
+	echo
+	echo "${bold}1.3 Install basic utilities needed for setup.${normal}"
+} 2>/dev/null
+sudo apt install curl vim
 
 {
 	echo; echo
