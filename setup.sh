@@ -120,6 +120,16 @@ cp -R .config/nvim $HOME/.config
 } 2>/dev/null
 $HOME/.local/bin/nvim +PlugInstall +qall
 
+
+{
+	echo
+	echo "${bold}6.0 Install atuin.sh.${normal}"
+} 2>/dev/null
+if ! command -v atuin &> /dev/null
+then
+	curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+fi
+
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
 # TODO: Install obsidian.md.
@@ -128,4 +138,3 @@ $HOME/.local/bin/nvim +PlugInstall +qall
 # TODO: Swap capslock and escape.
 # TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
-# TODO: Set up atuin.sh for better shell history.
