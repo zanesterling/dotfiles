@@ -87,11 +87,11 @@ fi
 grep -h "^deb.*git-core/ppa" /etc/apt/sources.list.d/* > /dev/null 2> /dev/null
 if [ $? -ne 0 ]
 then
-	{ echo "adding git apt repo" } 2> /dev/null
+	echo "adding git apt repo" 2> /dev/null
 	sudo add-apt-repository ppa:git-core/ppa
 	sudo apt update
 else
-	{ echo "git apt repo already added" } 2> /dev/null
+	echo "git apt repo already added" 2> /dev/null
 fi
 sudo apt install git
 
