@@ -34,6 +34,13 @@ touch $HOME/.zsh_local
 sudo apt install "${apt_packages[@]}"
 
 {
+	echo
+	echo "${bold}1.4 Set up i3 config.${normal}"
+} 2>/dev/null
+mkdir -p ~/.config/i3/
+cp i3-config.txt ~/.config/i3/config
+
+{
 	echo; echo
 	echo "${bold}2.0 Vim setup${normal}"
 	echo "${bold}2.1 Install vim-plug.${normal}"
