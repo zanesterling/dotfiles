@@ -7,6 +7,8 @@ dryrun=true
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep)
+
 set -x
 
 {
@@ -27,9 +29,9 @@ touch $HOME/.zsh_local
 
 {
 	echo
-	echo "${bold}1.3 Install basic utilities needed for setup.${normal}"
+	echo "${bold}1.3 Install needed packages.${normal}"
 } 2>/dev/null
-sudo apt install curl vim
+sudo apt install "${apt_packages[@]}"
 
 {
 	echo; echo
@@ -58,13 +60,7 @@ mkdir -p $HOME/.logs
 
 {
 	echo
-	echo "${bold}3.2 Install needed packages.${normal}"
-} 2>/dev/null
-sudo apt install python-is-python3 tmux gcc zsh
-
-{
-	echo
-	echo "${bold}3.3 Set up zsh-git-prompt.${normal}"
+	echo "${bold}3.2 Set up zsh-git-prompt.${normal}"
 } 2>/dev/null
 mkdir -p $HOME/.zsh/
 if [ ! -d $HOME/.zsh/zsh-git-prompt ]
@@ -74,7 +70,7 @@ fi
 
 {
 	echo
-	echo "${bold}3.4 Make ZSH the login shell.${normal}"
+	echo "${bold}3.3 Make ZSH the login shell.${normal}"
 } 2>/dev/null
 shell=$(getent passwd $LOGNAME | cut -d: -f7)
 if [ "$shell" != "$(which zsh)" ]
@@ -87,8 +83,16 @@ fi
 	echo; echo
 	echo "${bold}4.0 Git stuff -- make sure we're on the newest version!${normal}"
 } 2>/dev/null
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt update
+# Add git apt repo if it's not already added.
+grep -h "^deb.*git-core/ppa" /etc/apt/sources.list.d/* > /dev/null 2> /dev/null
+if [ $? -ne 0 ]
+then
+	{ echo "adding git apt repo" } 2> /dev/null
+	sudo add-apt-repository ppa:git-core/ppa
+	sudo apt update
+else
+	{ echo "git apt repo already added" } 2> /dev/null
+fi
 sudo apt install git
 
 
@@ -134,19 +138,34 @@ fi
 	echo
 	echo "${bold}6.1 Install obsidian.md.${normal}"
 } 2>/dev/null
-sudo apt install flatpak
 if ! flatpak info md.obsidian.Obsidian 2>/dev/null
 then
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak install flathub md.obsidian.Obsidian
 fi
 
+{
+	echo
+	echo "${bold}6.2 Install i3wm.${normal}"
+}
+if ! command -v i3
+then
+	# This is the setup for Ubuntu.
+	# TODO: When setting up a non-Ubuntu machine, add a check for OS.
+	/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
+	sudo apt install ./keyring.deb
+	echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
+	sudo apt update
+	sudo apt install i3wm
+fi
+
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
+#
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
-# TODO: Install i3wm and apply my config.
+# TODO: Apply my i3wm config.
 # TODO: Swap capslock and escape.
 # TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
 # TODO: Reverse trackpad direction.
-# TODO: skip adding ppa:git-core/ppa if it's already there
+# TODO: Set tap-to-click.
