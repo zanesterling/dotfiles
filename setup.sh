@@ -159,6 +159,19 @@ then
 	sudo apt install i3wm
 fi
 
+{
+	echo
+	echo "${bold}6.3 Install Rust and WASM.${normal}"
+} 2>/dev/null
+if ! command -v rustup
+then
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+if ! command -v wasm-pack
+then
+	curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+fi
+
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
 #
