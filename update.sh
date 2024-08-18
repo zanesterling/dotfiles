@@ -7,4 +7,4 @@ do
 	cp -R ../$path $path
 done
 
-cp ~/.config/i3/config i3-config.txt
+cp ~/.config/i3/config i3/config

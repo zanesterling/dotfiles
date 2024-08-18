@@ -39,7 +39,7 @@ sudo apt install "${apt_packages[@]}"
 	echo "${bold}1.4 Set up i3 config.${normal}"
 } 2>/dev/null
 mkdir -p ~/.config/i3/
-cp i3-config.txt ~/.config/i3/config
+cp i3/config ~/.config/i3/config
 
 {
 	echo; echo
