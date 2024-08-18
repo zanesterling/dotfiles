@@ -177,7 +177,6 @@ fi
 #
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
 # TODO: Apply my i3wm config.
-# TODO: Swap capslock and escape.
 # TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
 # TODO: Reverse trackpad direction.

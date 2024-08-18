@@ -68,3 +68,5 @@ source ~/.zsh_local
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# Swap capslock and escape.
+/usr/bin/setxkbmap -option caps:swapescape
