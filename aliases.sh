@@ -55,6 +55,7 @@ alias nvfix='e ~/.config/nvim/init.vim'
 alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='e ~/.tmux.conf'
 alias sfix='e ~/.ssh/config'
+alias ifix='e ~/.config/i3/config'
 alias dotfiles='cd ~/dotfiles'
 
 alias dev='cd ~/dev'
