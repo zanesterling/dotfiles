@@ -130,11 +130,23 @@ then
 	curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 fi
 
+{
+	echo
+	echo "${bold}6.1 Install obsidian.md.${normal}"
+} 2>/dev/null
+sudo apt install flatpak
+if ! flatpak info md.obsidian.Obsidian 2>/dev/null
+then
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak install flathub md.obsidian.Obsidian
+fi
+
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
-# TODO: Install obsidian.md.
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
 # TODO: Install i3wm and apply my config.
 # TODO: Swap capslock and escape.
 # TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
+# TODO: Reverse trackpad direction.
+# TODO: skip adding ppa:git-core/ppa if it's already there
