@@ -199,7 +199,6 @@ fi
 # This section is for stuff that I haven't done yet, but want to.
 #
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
-# TODO: Apply my i3wm config.
 # TODO: Adjust screen magnification.
 # TODO: Reverse trackpad direction.
 # TODO: Set tap-to-click.
