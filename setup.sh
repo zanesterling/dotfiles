@@ -95,7 +95,6 @@ else
 fi
 sudo apt install git
 
-
 {
 	echo; echo
 	echo "${bold}5.0 Neovim setup${normal}";
@@ -172,12 +171,23 @@ then
 	curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 fi
 
+{
+	echo
+	echo "${bold}6.4 Set up color scheme.${normal}"
+} 2>/dev/null
+sudo apt install dconf-cli
+git clone https://github.com/dracula/gnome-terminal ~/tmp/gnome-terminal
+pushd ~/tmp/gnome-terminal
+./install.sh
+popd
+rm -rf ~/tmp/gnome-terminal
+
+
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
 #
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
 # TODO: Apply my i3wm config.
-# TODO: Set gnome-terminal color settings.
 # TODO: Adjust screen magnification.
 # TODO: Reverse trackpad direction.
 # TODO: Set tap-to-click.
