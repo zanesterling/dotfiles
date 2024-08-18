@@ -61,12 +61,9 @@ precmd() {
 export PATH=$PATH:$HOME/.local/bin/
 
 
-# Run any local-specific customizations.
-source ~/.zsh_local
-
 # Setup for atuin.sh.
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# Swap capslock and escape.
-/usr/bin/setxkbmap -option caps:swapescape
+# Run any local-specific customizations.
+source ~/.zsh_local

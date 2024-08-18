@@ -189,4 +189,6 @@ bar {
         status_command i3status
 }
 
-exec xrandr --dpi 160
+bindsym $mod+c exec firefox
+exec_always xrandr --dpi 160
+exec /usr/bin/setxkbmap -option "caps:swapescape"
