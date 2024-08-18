@@ -7,7 +7,7 @@ dryrun=true
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep)
+apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep tree)
 
 set -x
 
