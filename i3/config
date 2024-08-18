@@ -192,3 +192,11 @@ bar {
 bindsym $mod+c exec firefox
 exec_always xrandr --dpi 160
 exec /usr/bin/setxkbmap -option "caps:swapescape"
+
+# Enable tap-to-click on touchpads.
+#
+# Seems like the id for touchpads is usually 11.
+# If it's not working, run `xinput` to find the id of your touchpad.
+#
+# If stuck, see: https://unix.stackexchange.com/questions/337008/activate-tap-to-click-on-touchpad
+exec xinput set-prop 11 'libinput Tapping Enabled' 1

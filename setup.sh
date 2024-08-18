@@ -201,4 +201,3 @@ fi
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
 # TODO: Adjust screen magnification.
 # TODO: Reverse trackpad direction.
-# TODO: Set tap-to-click.
