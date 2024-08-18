@@ -20,6 +20,7 @@ do
 	cp -R $path $HOME/$path
 done
 mkdir -p $HOME/tmp
+mkdir -p $HOME/.zane
 
 {
 	echo
@@ -182,13 +183,17 @@ fi
 	echo
 	echo "${bold}6.4 Set up color scheme.${normal}"
 } 2>/dev/null
-sudo apt install dconf-cli
-git clone https://github.com/dracula/gnome-terminal ~/tmp/gnome-terminal
-pushd ~/tmp/gnome-terminal
-./install.sh
-popd
-rm -rf ~/tmp/gnome-terminal
-
+if [ ! -f ~/.zane/colorscheme ]
+then
+	sudo apt install dconf-cli
+	rm -rf ~/tmp/gnome-terminal
+	git clone https://github.com/dracula/gnome-terminal ~/tmp/gnome-terminal
+	pushd ~/tmp/gnome-terminal
+	./install.sh
+	popd
+	rm -rf ~/tmp/gnome-terminal
+	echo darcula > ~/.zane/colorscheme
+fi
 
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
