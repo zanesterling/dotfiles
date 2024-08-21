@@ -189,7 +189,10 @@ bar {
         status_command i3status
 }
 
+# Application shortcuts.
 bindsym $mod+c exec firefox
+bindsym $mod+Control+1 exec flatpak run com.onepassword.OnePassword
+
 exec_always xrandr --dpi 160
 exec /usr/bin/setxkbmap -option "caps:swapescape"
 
