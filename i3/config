@@ -204,3 +204,12 @@ exec /usr/bin/setxkbmap -option "caps:swapescape"
 # If stuck, see: https://unix.stackexchange.com/questions/337008/activate-tap-to-click-on-touchpad
 exec xinput set-prop 11 'libinput Tapping Enabled' 1
 exec xinput set-prop 11 'libinput Natural Scrolling Enabled' 1
+
+# Start the picom compositor.
+#
+# This, along with some special settings in .config/picom/picom.conf,
+# prevents screen tearing in Firefox.
+exec --no-startup-id picom -b
+# Picom by default sets the background to grey. I use hsetroot here to set it
+# back to black.
+exec hsetroot -solid black

@@ -7,7 +7,7 @@ dryrun=true
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep tree)
+apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep tree picom hsetroot)
 
 set -x
 
@@ -40,6 +40,13 @@ sudo apt install "${apt_packages[@]}"
 } 2>/dev/null
 mkdir -p ~/.config/i3/
 cp i3/config ~/.config/i3/config
+
+{
+	echo
+	echo "${bold}1.4 Set up picom config.${normal}"
+} 2>/dev/null
+mkdir -p ~/.config/picom/
+cp i3/config ~/.config/picom/picom.conf
 
 {
 	echo; echo
@@ -199,3 +206,4 @@ fi
 # This section is for stuff that I haven't done yet, but want to.
 #
 # TODO: Disable bell (https://linuxconfig.org/turn-off-beep-bell-on-linux-terminal)
+# TODO: Separate out linux vs mac packages.
