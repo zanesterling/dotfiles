@@ -33,10 +33,6 @@ alias treed='tree -d'
 alias tl='tree | less'
 alias g3="pwd | sed 's/google3.*/google3/'"
 
-cs() {
-	mkdir -p $1 && cd $1
-}
-
 alias grep='grep --color'
 alias grepc='grep --color=always'
 alias grepn='grep --color=never'
@@ -61,7 +57,7 @@ alias dotfiles='cd ~/dotfiles'
 alias dev='cd ~/dev'
 alias hk='dev; cd projects'
 alias school='dev; cd school'
-alias tmp='cs ~/tmp'
+alias tmp='mkdir -p ~/tmp && cd ~/tmp'
 alias cleantmp='rm -rf tmp/*'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 
