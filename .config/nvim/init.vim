@@ -46,3 +46,11 @@ set ignorecase
 " Make searching case-sensitive if the search pattern contains an uppercase
 " character.
 set smartcase
+
+command Nvfix tabnew ~/.config/nvim/init.vim
+command Nvrld source ~/.config/nvim/init.vim
+autocmd BufRead,BufNewFile METADATA setlocal ts=2 sw=2 expandtab
+
+" If in one of foo/blah{.ts,.ng.html,_test.ts},
+" opens foo/blah.ts, foo/blah_test.ts, and foo/blah.ng.html in tabs.
+command AngTabset e %:r:r:s?_test$??.ts | tabnew %:r:r.ng.html | tabnew %:r:r_test.ts | tabm -1
