@@ -7,7 +7,7 @@ dryrun=true
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep tree picom hsetroot)
+apt_packages=(curl vim python-is-python3 tmux gcc zsh flatpak ripgrep picom hsetroot)
 
 set -x
 
@@ -199,6 +199,19 @@ then
 	popd
 	rm -rf ~/tmp/gnome-terminal
 	echo darcula > ~/.zane/colorscheme
+fi
+
+{
+	echo
+	echo "${bold}6.5 Install hexyl, bat, and friends.${normal}"
+} 2>/dev/null
+if [ ! -f ~/.local/bin/hexyl ]
+then
+	if [[ "$OSTYPE" == "darwin"* ]] ; then
+		brew install hexyl bat fd numbat
+	elif [[ "$OSTYPE" == "darwin"* ]] ; then
+		sudo apt install hexyl bat fd numbat
+	fi
 fi
 
 {
