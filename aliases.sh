@@ -19,6 +19,7 @@ alias lc='l --color=always'
 alias la='l -a'
 alias ll='la'
 alias lt='l -t'
+alias ltt='lt | head -n 6'
 alias o='open'
 alias c.='cd .'
 
@@ -48,11 +49,13 @@ alias zfix='e ~/.zshrc'
 alias zlfix='e ~/.zsh_local'
 alias vfix='e ~/.vimrc'
 alias nvfix='e ~/.config/nvim/init.vim'
+alias nvtfix='e ~/.config/nvim/lua/config/treesitter.lua'
 alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='e ~/.tmux.conf'
 alias sfix='e ~/.ssh/config'
 alias ifix='e ~/.config/i3/config'
 alias dotfiles='cd ~/dotfiles'
+alias gfix='e ~/Library/Application\ Support/com.mitchellh.ghostty/config'
 
 alias dev='cd ~/dev'
 alias hk='dev; cd projects'
@@ -213,6 +216,7 @@ j() {
 }
 
 alias hd='hexdump'
+alias testnet='ping 8.8.8.8'
 
 dump ()
 {
