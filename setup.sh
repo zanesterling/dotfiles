@@ -138,7 +138,6 @@ cp -R .config/nvim $HOME/.config
 } 2>/dev/null
 $HOME/.local/bin/nvim +PlugInstall +qall
 
-
 {
 	echo
 	echo "${bold}6.0 Install atuin.sh.${normal}"
@@ -201,6 +200,27 @@ then
 	rm -rf ~/tmp/gnome-terminal
 	echo darcula > ~/.zane/colorscheme
 fi
+
+{
+	echo; echo
+	echo "${bold}7.0 Ghostty setup${normal}";
+	echo "${bold}7.1 Install Ghostty.${normal}"
+} 2>/dev/null
+if [ ! -f $HOME/.local/bin/ghostty ]
+then
+	if [[ "$OSTYPE" == "darwin"* ]] ; then # macos
+		brew install --cask ghostty
+		ln -s $(which ghostty) $HOME/.local/bin/ghostty
+	elif [[ "$OSTYPE" = "linux-gnu"* ]] ; then
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+		ln -s $(which ghostty) $HOME/.local/bin/ghostty
+	fi
+fi
+
+{
+	echo "${bold}7.2 Set up Ghostty config.${normal}";
+} 2>/dev/null
+cp -R .config/ghostty $HOME/.config/
 
 ## Todo Area
 # This section is for stuff that I haven't done yet, but want to.
