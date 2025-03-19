@@ -208,9 +208,15 @@ fi
 if [ ! -f ~/.local/bin/hexyl ]
 then
 	if [[ "$OSTYPE" == "darwin"* ]] ; then
-		brew install hexyl bat fd numbat
+		brew install hexyl bat fd numbat ijq bufbuild/buf/buf
 	elif [[ "$OSTYPE" == "darwin"* ]] ; then
-		sudo apt install hexyl bat fd numbat
+		sudo apt install hexyl bat fd numbat ijq
+		BIN="$HOME/.local/bin/" && \
+		VERSION="1.50.1" && \
+		curl -sSL \
+		"https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-$(uname -s)-$(uname -m)" \
+		-o "${BIN}/buf" && \
+		chmod +x "${BIN}/buf"
 	fi
 fi
 
