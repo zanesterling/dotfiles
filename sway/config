@@ -80,7 +80,7 @@ input "type:touchpad" {
 
 input "type:pointer" {
     natural_scroll disabled
-    scroll_factor 4
+    scroll_factor 2
 }
 
 input "type:keyboard" {
@@ -255,3 +255,5 @@ font monospace 8
 titlebar_padding 1
 
 include /etc/sway/config.d/*
+
+exec wl-paste -t text --watch clipman store --no-persist
