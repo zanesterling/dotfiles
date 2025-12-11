@@ -60,7 +60,7 @@ cp sway/config ~/.config/sway/config
 	echo "${bold}1.7 Set up foot config.${normal}"
 } 2>/dev/null
 mkdir -p ~/.config/foot/
-cp foot/config ~/.config/foot/config
+cp foot/foot.ini ~/.config/foot/foot.ini
 
 {
 	echo; echo
@@ -131,16 +131,15 @@ sudo apt install git
 	echo "${bold}5.0 Neovim setup${normal}";
 	echo "${bold}5.1 Install Neovim.${normal}"
 } 2>/dev/null
-# TODO: Un-comment when github comes back up.
-# if [ ! -f $HOME/.local/bin/nvim ]
-# then
-# 	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-# 	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux64.tar.gz
-# 	mkdir -p $HOME/.local/bin
-# 	mv $HOME/tmp/nvim-linux64 $HOME/.local/bin/
-# 	ln -s $HOME/.local/bin/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
-# 	rm $HOME/tmp/nvim-linux64.tar.gz
-# fi
+if [ ! -f $HOME/.local/bin/nvim ]
+then
+	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux64.tar.gz
+	mkdir -p $HOME/.local/bin
+	mv $HOME/tmp/nvim-linux64 $HOME/.local/bin/
+	ln -s $HOME/.local/bin/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
+	rm $HOME/tmp/nvim-linux64.tar.gz
+fi
 
 {
 	echo
