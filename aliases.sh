@@ -3,7 +3,7 @@ e() {
 }
 
 runapp() {
-	$@ &; disown %2
+	$@ & >/dev/null 2>/dev/null; disown %2
 }
 
 function swap()
@@ -54,15 +54,18 @@ alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='e ~/.tmux.conf'
 alias sfix='e ~/.ssh/config'
 alias ifix='e ~/.config/i3/config'
+alias swayfix='e ~/.config/sway/config'
 alias dotfiles='cd ~/dotfiles'
 alias gfix='e ~/Library/Application\ Support/com.mitchellh.ghostty/config'
 
 alias dev='cd ~/dev'
+alias work='cd ~/work'
 alias hk='dev; cd projects'
 alias school='dev; cd school'
 alias tmp='mkdir -p ~/tmp && cd ~/tmp'
 alias cleantmp='rm -rf tmp/*'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
+alias guide='e ~/guide.md'
 
 alias gp='git push'
 alias gl='git pull'
