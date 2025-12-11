@@ -56,6 +56,13 @@ mkdir -p ~/.config/sway/
 cp sway/config ~/.config/sway/config
 
 {
+	echo
+	echo "${bold}1.7 Set up foot config.${normal}"
+} 2>/dev/null
+mkdir -p ~/.config/foot/
+cp foot/config ~/.config/foot/config
+
+{
 	echo; echo
 	echo "${bold}2.0 Vim setup${normal}"
 	echo "${bold}2.1 Install vim-plug.${normal}"
@@ -106,7 +113,8 @@ fi
 	echo "${bold}4.0 Git stuff -- make sure we're on the newest version!${normal}"
 } 2>/dev/null
 # Add git apt repo if it's not already added.
-grep -h "^deb.*git-core/ppa" /etc/apt/sources.list.d/* > /dev/null 2> /dev/null
+set +e
+grep -h "git-core/ppa" /etc/apt/sources.list.d/* > /dev/null 2> /dev/null
 if [ $? -ne 0 ]
 then
 	echo "adding git apt repo" 2> /dev/null
@@ -115,6 +123,7 @@ then
 else
 	echo "git apt repo already added" 2> /dev/null
 fi
+set -e
 sudo apt install git
 
 {
@@ -122,15 +131,16 @@ sudo apt install git
 	echo "${bold}5.0 Neovim setup${normal}";
 	echo "${bold}5.1 Install Neovim.${normal}"
 } 2>/dev/null
-if [ ! -f $HOME/.local/bin/nvim ]
-then
-	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux64.tar.gz
-	mkdir -p $HOME/.local/bin
-	mv $HOME/tmp/nvim-linux64 $HOME/.local/bin/
-	ln -s $HOME/.local/bin/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
-	rm $HOME/tmp/nvim-linux64.tar.gz
-fi
+# TODO: Un-comment when github comes back up.
+# if [ ! -f $HOME/.local/bin/nvim ]
+# then
+# 	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+# 	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux64.tar.gz
+# 	mkdir -p $HOME/.local/bin
+# 	mv $HOME/tmp/nvim-linux64 $HOME/.local/bin/
+# 	ln -s $HOME/.local/bin/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
+# 	rm $HOME/tmp/nvim-linux64.tar.gz
+# fi
 
 {
 	echo
@@ -143,7 +153,7 @@ cp -R .config/nvim $HOME/.config
 	echo
 	echo "${bold}5.3 Install nvim plugins.${normal}"
 } 2>/dev/null
-$HOME/.local/bin/nvim +PlugInstall +qall
+# $HOME/.local/bin/nvim +PlugInstall +qall
 
 {
 	echo
@@ -172,11 +182,13 @@ if ! command -v i3
 then
 	# This is the setup for Ubuntu.
 	# TODO: When setting up a non-Ubuntu machine, add a check for OS.
-	/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
+	# NOTE: This breaks periodically. Fix by updating instructions from source.
+	# https://i3wm.org/docs/repositories.html
+	/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2025.03.09_all.deb keyring.deb SHA256:2c2601e6053d5c68c2c60bcd088fa9797acec5f285151d46de9c830aaba6173c
 	sudo apt install ./keyring.deb
-	echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
+	echo "deb [signed-by=/usr/share/keyrings/sur5r-keyring.gpg] http://debian.sur5r.net/i3/ $(grep '^VERSION_CODENAME=' /etc/os-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
 	sudo apt update
-	sudo apt install i3wm
+	sudo apt install i3
 fi
 
 {
