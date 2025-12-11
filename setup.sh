@@ -43,10 +43,17 @@ cp i3/config ~/.config/i3/config
 
 {
 	echo
-	echo "${bold}1.4 Set up picom config.${normal}"
+	echo "${bold}1.5 Set up picom config.${normal}"
 } 2>/dev/null
 mkdir -p ~/.config/picom/
 cp i3/config ~/.config/picom/picom.conf
+
+{
+	echo
+	echo "${bold}1.6 Set up swaywm config.${normal}"
+} 2>/dev/null
+mkdir -p ~/.config/sway/
+cp sway/config ~/.config/sway/config
 
 {
 	echo; echo
