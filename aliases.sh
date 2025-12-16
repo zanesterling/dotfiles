@@ -50,13 +50,13 @@ alias zlfix='e ~/.zsh_local'
 alias vfix='e ~/.vimrc'
 alias nvfix='e ~/.config/nvim/init.vim'
 alias nvtfix='e ~/.config/nvim/lua/config/treesitter.lua'
-alias vwfix='e ~/.vim/ftplugin/vimwiki.vim'
 alias tfix='e ~/.tmux.conf'
 alias sfix='e ~/.ssh/config'
 alias ifix='e ~/.config/i3/config'
 alias swayfix='e ~/.config/sway/config'
 alias dotfiles='cd ~/dotfiles'
 alias gfix='e ~/Library/Application\ Support/com.mitchellh.ghostty/config'
+alias footfix='e ~/.config/foot/foot.ini'
 
 alias dev='cd ~/dev'
 alias work='cd ~/work'
@@ -66,6 +66,7 @@ alias tmp='mkdir -p ~/tmp && cd ~/tmp'
 alias cleantmp='rm -rf tmp/*'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
 alias guide='e ~/guide.md'
+alias learn='e ~/learn.md'
 
 alias gp='git push'
 alias gl='git pull'
@@ -173,14 +174,6 @@ is_checked_in() {
 alias ci='check_in'
 alias co='check_out'
 alias ici='is_checked_in'
-
-note() {
-	vim -c 'silent call vimwiki#diary#make_note(v:count1)' + -c 'r !date "+\%n== \%H:\%M ==\%n"'
-}
-alias jrnl='vim -c "silent call vimwiki#diary#make_note(v:count1)"'
-alias diary='jrnl'
-alias wiki='vim -c "silent call vimwiki#base#goto_index(v:count1)"'
-alias learn='vim ~/vimwiki/Learn.wiki' # TODO(): Find the vimwiki command to open a page.
 
 alias rustdoc='open /usr/local/share/doc/rust/html/index.html'
 
