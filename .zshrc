@@ -58,7 +58,8 @@ precmd() {
 	fi
 }
 
-export PATH=$PATH:$HOME/.local/bin/
+export GOPATH="$HOME/go"
+export PATH=$PATH:$HOME/.local/bin/:$GOPATH/bin
 
 
 # Setup for atuin.sh.
