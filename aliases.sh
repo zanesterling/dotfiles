@@ -65,8 +65,10 @@ alias school='dev; cd school'
 alias tmp='mkdir -p ~/tmp && cd ~/tmp'
 alias cleantmp='rm -rf tmp/*'
 alias gzdir='cd /usr/local/Cellar/gazebo7/7.0.0/share/gazebo-7'
+
 alias guide='e ~/guide.md'
 alias learn='e ~/learn.md'
+alias ask='e ~/ask.md'
 
 alias gp='git push'
 alias gl='git pull'

@@ -10,6 +10,9 @@ $ nmcli device wifi connect "$SSID" password "$PASSWORD"
 # Enable wifi if you accidentally hit the wifi-off button.
 $ nmcli radio wifi on
 
+# Show the wifi password.
+$ nmcli device wifi show-password
+
 # More examples:
 $ man nmcli-examples
 ```
@@ -115,3 +118,54 @@ $ gdb -c path/to/core
 Run `sleep 30` to start a long-running process.
 
 Press `Ctrl+\` to force a core dump.
+
+## Time and time zones
+```shell
+# View the current time zone:
+$ timedatectl # aka `timedatectl status`
+
+# Set the current time manually:
+# Times are in this format: "2012-10-30 18:17:16"
+$ timedatectl set-time "$TIME"
+
+# List available timezones:
+$ timedatectl list-timezones
+
+# Set the current timezone:
+$ timedatectl set-timezone "$TIMEZONE"
+
+# Turn on/off Network Time Protocol (NTP).
+# If on, should get the time from servers somewhere.
+$ timedatectl set-ntp
+
+# More info, and pointers to further reading:
+$ man timedatectl
+```
+
+## Music
+Most Linux distros come with [Rhythmbox](http://www.rhythmbox.org/) installed.
+It has a typical iTunes-like UI for browsing and playing your local music,
+and seems to also have functionality for radio and other stuff.
+
+Start it by running `rhythmbox`.
+
+```shell
+$ rhythmbox-client --play
+$ rhythmbox-client --pause
+$ rhythmbox-client --play-pause     # toggle
+$ rhythmbox-client --stop
+
+# Print out the title and artist of the current song.
+$ rhythmbox-client --print-playing
+# Print a formatted string with stuff.
+# Options in `man rhythmbox-client`.
+$ rhythmbox-client --print-playing-format="$FORMAT_STR"
+
+$ rhythmbox-client --volume-up
+$ rhythmbox-client --volume-down
+$ rhythmbox-client --set-volume
+$ rhythmbox-client --print-volume
+
+# Interactive mode:
+$ rhythmbox-client -i
+```
