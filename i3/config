@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $term ghostty
+set $term gnome-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -44,6 +44,12 @@ set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 4%+ unmute && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 4%- unmute && $refresh_i3status
 bindsym XF86AudioMute        exec --no-startup-id amixer -q set Master toggle     && $refresh_i3status
+
+# Bind screen brightness buttons.
+#
+# NOTE: You may need to `chmod +s /usr/bin/light`.
+bindsym XF86MonBrightnessUp   exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
