@@ -76,6 +76,7 @@ input "type:touchpad" {
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
+    scroll_factor 0.35
 }
 
 input "type:pointer" {
@@ -242,8 +243,37 @@ bar {
 
 bindsym $mod+Shift+backslash move absolute 0 px 0 px
 
+# Bind volume adjustment buttons.
+set $refresh_i3status killall -SIGUSR1 i3status
+# Use pactl to adjust volume in PulseAudio.
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   +10%   && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_i3status
+#bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
+#bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 4%+ unmute && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 4%- unmute && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id amixer -q set Master toggle     && $refresh_i3status
+
+# Bind media buttons.
+#
+# TODO: Generalize this to use playerctl, so that it works with any
+#       MPRIS-compatible media player.
+#       See: https://itsfoss.gitlab.io/post/how-to-control-media-players-from-commandline-in-linux/
+#       May also need https://github.com/beingmohit/browser-playerctl for Chrome.
+bindsym XF86AudioPrev  exec rhythmbox-client --no-start --previous
+bindsym XF86AudioNext  exec rhythmbox-client --no-start --next
+bindsym XF86AudioPlay  exec rhythmbox-client --no-start --play-pause
+bindsym XF86AudioPause exec rhythmbox-client --no-start --play-pause
+
+
+# Bind screen brightness buttons.
+#
+# NOTE: You may need to `chmod +s /usr/bin/light`.
+bindsym XF86MonBrightnessUp   exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
 # Configure titlebar font and thickness.
-font monospace 8
+font monospace 10
 titlebar_padding 1
 
 include /etc/sway/config.d/*
