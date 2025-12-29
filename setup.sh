@@ -40,6 +40,8 @@ sudo apt install "${apt_packages[@]}"
 } 2>/dev/null
 mkdir -p ~/.config/i3/
 cp i3/config ~/.config/i3/config
+mkdir -p ~/.config/i3status/
+cp .config/i3status/config ~/.config/i3status/config
 
 {
 	echo
