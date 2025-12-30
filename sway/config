@@ -24,18 +24,32 @@ include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-output * {
-    # Turn off hidpi scaling.
-    # Scaling causes the image to appear pixelated.
+
+set $laptop-monitor eDP-1
+set $laptop-monitor-width 1920
+output $laptop-monitor {
     scale 1.5
+    pos 0 0
+}
+
+# External monitor.
+#
+# This is set up specifically for Elliot's attic monitor,
+# so settings may need to be changed for other monitors.
+#
+# Comment this out if you DC from the monitor.
+set $attic-monitor "Lenovo Group Limited LEN T32p-20 VNA4Y7TB"
+set $attic-monitor-width 3840
+workspace 1 output $attic-monitor
+workspace 2 output $attic-monitor
+workspace 10 output $laptop-monitor
+output $attic-monitor {
+    scale 1
+    pos -860 -2160
 }
 
 ### Idle configuration
@@ -132,6 +146,12 @@ input "type:keyboard" {
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
+    # Move focused workspace to the output to up/down/left/right
+    bindsym $mod+Ctrl+Shift+$left  move workspace to left
+    bindsym $mod+Ctrl+Shift+$down  move workspace to down
+    bindsym $mod+Ctrl+Shift+$up    move workspace to up
+    bindsym $mod+Ctrl+Shift+$right move workspace to right
 
 #
 # Workspaces:
