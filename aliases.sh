@@ -220,3 +220,5 @@ dump ()
 {
 	objdump -d -Mintel $@ | less
 }
+
+alias rgc='rg --color=always'
