@@ -59,7 +59,19 @@ cp sway/config ~/.config/sway/config
 
 {
 	echo
-	echo "${bold}1.7 Set up foot config.${normal}"
+	echo "${bold}1.7 Set up sway-screenshot.${normal}"
+} 2>/dev/null
+if [ ! -f "$HOME/.local/bin/sway-screenshot" ]
+then
+	git clone https://github.com/Gustash/sway-screenshot.git $HOME/tmp/sway-screenshot
+	cp $HOME/tmp/sway-screenshot/sway-screenshot $HOME/.local/bin/sway-screenshot
+	chmod +x $HOME/.local/bin/sway-screenshot
+	rm -rf $HOME/tmp/sway-screenshot
+fi
+
+{
+	echo
+	echo "${bold}1.8 Set up foot config.${normal}"
 } 2>/dev/null
 mkdir -p ~/.config/foot/
 cp foot/foot.ini ~/.config/foot/foot.ini
