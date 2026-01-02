@@ -222,3 +222,8 @@ dump ()
 }
 
 alias rgc='rg --color=always'
+
+# Screen snips using sway-screenshot
+# https://github.com/Gustash/sway-screenshot
+alias snip='sway-screenshot -s -m region -o ~/Pictures'
+alias snipwin='sway-screenshot -s -m window -o ~/Pictures'
