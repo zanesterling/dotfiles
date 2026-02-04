@@ -68,3 +68,18 @@ eval "$(atuin init zsh --disable-up-arrow)"
 
 # Run any local-specific customizations.
 source ~/.zsh_local
+
+# Bun stuff
+	# bun completions
+	[ -s "/home/zane/.bun/_bun" ] && source "/home/zane/.bun/_bun"
+	
+	# bun
+	export BUN_INSTALL="$HOME/.bun"
+	export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Source - https://stackoverflow.com/a/48999882
+# Amend the target commit with any staged changes.
+# usage:
+#   $ git add a b c
+#   $ git amend-to TARGET_REV
+git config --global alias.amend-to '!f() { SHA=`git rev-parse "$1"`; git stash -k && git commit --fixup "$SHA" && GIT_SEQUENCE_EDITOR=true git rebase --interactive --autosquash "$SHA^" && git stash pop; }; f'
