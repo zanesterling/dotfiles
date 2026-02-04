@@ -43,30 +43,30 @@
 # resize-overlay-duration = 4s 200ms
 
 background-opacity = 1.0
-font-family = Monaco
-font-size = 10
+font-family = monospace
+font-size = 8
 theme = Dracula
 mouse-hide-while-typing = true
 scrollback-limit = 1000000
 
-keybind = global:alt+space=toggle_quick_terminal
+# keybind = global:alt+space=toggle_quick_terminal
 
-keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+a>j=goto_split:bottom
-keybind = ctrl+a>k=goto_split:top
-keybind = ctrl+a>l=goto_split:right
-keybind = ctrl+a>o=goto_split:next
-keybind = ctrl+a>shift+apostrophe=new_split:down
-keybind = ctrl+a>shift+5=new_split:right
-keybind = ctrl+a>z=toggle_split_zoom
+# keybind = ctrl+a>h=goto_split:left
+# keybind = ctrl+a>j=goto_split:bottom
+# keybind = ctrl+a>k=goto_split:top
+# keybind = ctrl+a>l=goto_split:right
+# keybind = ctrl+a>o=goto_split:next
+# keybind = ctrl+a>shift+apostrophe=new_split:down
+# keybind = ctrl+a>shift+5=new_split:right
+# keybind = ctrl+a>z=toggle_split_zoom
+# 
+# keybind = ctrl+a>c=new_tab
+# keybind = ctrl+a>n=next_tab
+# keybind = ctrl+a>p=previous_tab
 
-keybind = ctrl+a>c=new_tab
-keybind = ctrl+a>n=next_tab
-keybind = ctrl+a>p=previous_tab
- 
 keybind = super+r=reload_config
 
-keybind = ctrl+l=clear_screen
-keybind = super+comma=unbind
-
-window-save-state = always
+# keybind = ctrl+l=clear_screen
+# keybind = super+comma=unbind
+# 
+# window-save-state = always
