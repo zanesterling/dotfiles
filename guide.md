@@ -169,3 +169,19 @@ $ rhythmbox-client --print-volume
 # Interactive mode:
 $ rhythmbox-client -i
 ```
+
+## Webcam control
+[arch wiki](https://wiki.archlinux.org/title/Webcam_setup)
+
+Put a light in front, above your monitor, facing towards your face.
+
+For software, the keyword is `video4linux`.
+
+Use `qv4l2` (`sudo apt install qv4l2`) to configure your camera. For this framework laptop, the important settings were:
+- backlight compensation: 0
+- power line frequency: disabled
+- exposure, dynamic framerate: off
+
+You can discover more settings with `v4l2-ctl` (`sudo apt install v4l2-utils`).
+
+Find other general tips on lighting and webcams in [this guide from Vimeo](https://web.archive.org/web/20260123211116/https://vimeo.com/blog/post/best-webcam-light).
