@@ -316,8 +316,10 @@ bindsym XF86AudioPause exec rhythmbox-client --no-start --play-pause
 # Bind screen brightness buttons.
 #
 # NOTE: You may need to `chmod +s /usr/bin/light`.
-bindsym XF86MonBrightnessUp   exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp         exec light -A 10
+bindsym XF86MonBrightnessDown       exec light -U 10
+bindsym Shift+XF86MonBrightnessUp   exec light -A 5
+bindsym Shift+XF86MonBrightnessDown exec light -U 5
 
 # Configure titlebar font and thickness.
 font monospace 10
