@@ -56,7 +56,7 @@ au BufNewFile,BufRead *.txt  set ft=text
 au BufNewFile,BufRead *.wiki set ft=vimwiki
 au! FileType asm     setl ft=nasm expandtab
 au! FileType python  setl ts=4 sw=4 expandtab
-au! FileType c       setl ts=4 sw=4 noexpandtab
+au! FileType c       setl ts=4 sw=4 expandtab
 au! Filetype text    setl textwidth=79
 au! FileType vimwiki setl textwidth=79 expandtab
 au! Filetype haskell setl ts=2 sw=2 et sts=2
