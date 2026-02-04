@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $term gnome-terminal
+set $term ghostty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -147,6 +147,13 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# TODO: These conflict with ghostty keybinds.
+# Move focused workspace to the output to up/down/left/right
+#bindsym $mod+Ctrl+Shift+$left  move workspace to left
+#bindsym $mod+Ctrl+Shift+$down  move workspace to down
+#bindsym $mod+Ctrl+Shift+$up    move workspace to up
+#bindsym $mod+Ctrl+Shift+$right move workspace to right
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -191,6 +198,34 @@ bar {
 bindsym $mod+c exec firefox
 bindsym $mod+Control+1 exec flatpak run com.onepassword.OnePassword
 
+# Multi-monitor setup.
+set $x11_laptop_output eDP
+set $x11_usbc_output DisplayPort-6
+set $x11_hdmi_output DisplayPort-3
+
+# Turn off the output associated with our USB-C lightning port.
+#
+# We're using this port exclusively for charging,
+# and using a different port (via an HDMI adapter) for rendering.
+# The reason is that you can't both charge and display 4K over this port,
+# so it's better to use one port to charge, and one to send 4K.
+exec_always xrandr --output $x11_usbc_output --off
+
+# Configure monitor sizes and positions.
+exec_always xrandr --output $x11_hdmi_output --mode 3840x2160
+# position it laptop monitor below main monitor
+exec_always xrandr --output $x11_laptop_output --below $x11_hdmi_output
+
+# Configure workspace-monitor assignment.
+workspace  1 output $x11_hdmi_output
+workspace  2 output $x11_hdmi_output
+workspace  3 output $x11_hdmi_output
+workspace  4 output $x11_hdmi_output
+workspace  9 output $x11_laptop_output
+workspace 10 output $x11_laptop_output
+
+
+# TODO: What is this bit?
 exec_always xrandr --dpi 160
 exec /usr/bin/setxkbmap -option "caps:swapescape"
 
