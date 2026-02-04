@@ -36,21 +36,45 @@ output $laptop-monitor {
     pos 0 0
 }
 
+
 # External monitor.
 #
 # This is set up specifically for Elliot's attic monitor,
 # so settings may need to be changed for other monitors.
 #
 # Comment this out if you DC from the monitor.
-set $attic-monitor "Lenovo Group Limited LEN T32p-20 VNA4Y7TB"
-set $attic-monitor-width 3840
-workspace 1 output $attic-monitor
-workspace 2 output $attic-monitor
+# set $attic-monitor "Lenovo Group Limited LEN T32p-20 VNA4Y7TB"
+# set $attic-monitor-width 3840
+# workspace 1 output $attic-monitor
+# workspace 2 output $attic-monitor
+# workspace 3 output $attic-monitor
+# workspace 10 output $laptop-monitor
+# output $attic-monitor {
+#     scale 1
+#     pos -860 -2160
+# }
+
+# This is set up specifically for my office monitor,
+# so settings may need to be changed for other monitors.
+#
+# Comment this out if you DC from the monitor.
+
+set $office-monitor 'Dell Inc. DELL U2725QE GFWJ734'
+set $office-monitor-width 3840
+workspace  1 output DP-4 $office-monitor
+workspace  2 output DP-4 $office-monitor
+workspace  3 output DP-4 $office-monitor
+workspace  4 output DP-4 $office-monitor
+workspace  9 output $laptop-monitor
 workspace 10 output $laptop-monitor
-output $attic-monitor {
+output $office-monitor {
     scale 1
     pos -860 -2160
+    mode 3840x2160@60Hz
 }
+
+set $office-monitor-thunderbolt "DP-7"
+output $office-monitor-thunderbolt disable
 
 ### Idle configuration
 #
