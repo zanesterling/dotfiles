@@ -87,6 +87,10 @@ alias xl='glg'
 alias grb='git rebase'
 alias gsh='git stash'
 alias gra='git remote add'
+gdc() {
+	git diff "$1~" "$1"
+}
+alias gsw='git switch'
 
 alias s='gs'
 alias d='gd'
