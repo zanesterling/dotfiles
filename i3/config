@@ -235,8 +235,8 @@ exec /usr/bin/setxkbmap -option "caps:swapescape"
 # If it's not working, run `xinput` to find the id of your touchpad.
 #
 # If stuck, see: https://unix.stackexchange.com/questions/337008/activate-tap-to-click-on-touchpad
-exec xinput set-prop 11 'libinput Tapping Enabled' 1
-exec xinput set-prop 11 'libinput Natural Scrolling Enabled' 1
+exec xinput set-prop 15 'libinput Tapping Enabled' 1
+exec xinput set-prop 15 'libinput Natural Scrolling Enabled' 1
 
 # Start the picom compositor.
 #
