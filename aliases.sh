@@ -231,3 +231,4 @@ alias rgc='rg --color=always'
 # https://github.com/Gustash/sway-screenshot
 alias snip='sway-screenshot -s -m region -o ~/Pictures'
 alias snipwin='sway-screenshot -s -m window -o ~/Pictures'
+alias snipscr='sway-screenshot -s -m output -o ~/Pictures'
