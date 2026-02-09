@@ -55,22 +55,23 @@ output $laptop-monitor {
 #
 # Comment this out if you DC from the monitor.
 
-set $office-monitor 'Dell Inc. DELL U2725QE GFWJ734'
-set $office-monitor-width 3840
-workspace  1 output DP-4 $office-monitor
-workspace  2 output DP-4 $office-monitor
-workspace  3 output DP-4 $office-monitor
-workspace  4 output DP-4 $office-monitor
-workspace  9 output $laptop-monitor
-workspace 10 output $laptop-monitor
+set $office-monitor-hdmi 'Dell Inc. DELL U2725QE GFWJ734'
+set $office-monitor-thunderbolt "DP-7"
+output $office-monitor-hdmi disable
+output $office-monitor-thunderbolt enable
+set $office-monitor $office-monitor-thunderbolt
+
 output $office-monitor {
     scale 1
     pos -860 -2160
     mode 3840x2160@60Hz
 }
-
-set $office-monitor-thunderbolt "DP-7"
-output $office-monitor-thunderbolt disable
+workspace  1 output $office-monitor
+workspace  2 output $office-monitor
+workspace  3 output $office-monitor
+workspace  4 output $office-monitor
+workspace  9 output $laptop-monitor
+workspace 10 output $laptop-monitor
 
 ### Idle configuration
 #
