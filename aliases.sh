@@ -92,6 +92,7 @@ gdc() {
 }
 alias gsw='git switch'
 
+alias una='git restore --staged' # un-add
 alias s='gs'
 alias d='gd'
 alias c='gc'

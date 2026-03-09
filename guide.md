@@ -185,3 +185,18 @@ Use `qv4l2` (`sudo apt install qv4l2`) to configure your camera. For this framew
 You can discover more settings with `v4l2-ctl` (`sudo apt install v4l2-utils`).
 
 Find other general tips on lighting and webcams in [this guide from Vimeo](https://web.archive.org/web/20260123211116/https://vimeo.com/blog/post/best-webcam-light).
+
+## Screenshots
+I have two tools for this. `sway-screenshot` uses `slurp` to let you pick a region, window, or output.
+
+```
+$ sway-screenshot -m region
+$ sway-screenshot -m window
+$ sway-screenshot -m output
+```
+
+It depends on the lower-level `grim`, which takes a screen region in the format `"x,y WIDTHxHEIGHT"`. If you need to take a screenshot of a popup, use `grim`.
+
+```
+$ grim "-860,-2160 1920x2160"
+```
