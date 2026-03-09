@@ -1,13 +1,18 @@
 -- Setup language servers.
-local lspconfig = require('lspconfig')
--- lspconfig.pyright.setup {}
--- lspconfig.tsserver.setup {}
-lspconfig.rust_analyzer.setup {
+vim.lsp.enable('rust_analyzer')
+vim.lsp.config('rust_analyzer', {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ['rust-analyzer'] = {},
   },
-}
+})
+
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('gopls')
+vim.lsp.enable('zls')
+
+-- disable format-on-save from `ziglang/zig.vim`
+vim.g.zig_fmt_autosave = 0
 
 
 -- Global mappings.

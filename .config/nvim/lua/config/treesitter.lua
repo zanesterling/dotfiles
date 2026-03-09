@@ -1,23 +1,40 @@
-require'nvim-treesitter.configs'.setup {
-  -- A directory to install the parsers into.
-  -- If this is excluded or nil parsers are installed
-  -- to either the package dir, or the "site" dir.
-  -- If a custom path is used (not nil) it must be added to the runtimepath.
-  parser_install_dir = nil,
+---@generic T
+---@param super T[]
+---@param sub T[]
+---@return T[]
+function table.except(super, sub)
+  local result = {}
+  local seenInResult = {}
+  local lookupSub = {}
 
-  -- A list of parser names, or "all"
-  ensure_installed = { "lua", "rust", "vim" },
+  for _, value in ipairs(sub) do
+    lookupSub[value] = true
+  end
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  for _, value in ipairs(super) do
+    if not lookupSub[value] and not seenInResult[value] then
+      table.insert(result, value)
+      seenInResult[value] = true
+    end
+  end
 
-  -- Automatically install missing parsers when entering buffer
-  auto_install = true,
+  return result
+end
 
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = {},
+local treesitter = require('nvim-treesitter')
+treesitter.setup()
+treesitter.install(table.except({ "lua", "rust", "vim" }, treesitter.get_installed()))
 
-  highlight = { enable = true },
-  incremental_selection = { enable = true },
-  indent = { enable = true },
-}
+vim.api.nvim_create_autocmd('FileType', {
+	callback = function(args)
+		if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match))
+		then
+			vim.treesitter.start(args.buf)
+			-- folds, provided by neovim
+			vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+			vim.wo.foldmethod = 'expr'
+			-- indentation, provided by nvim-treesitter
+			--vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		end
+	end,
+})
