@@ -147,12 +147,13 @@ sudo apt install git
 } 2>/dev/null
 if [ ! -f $HOME/.local/bin/nvim ]
 then
-	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux64.tar.gz
+
+	wget -P $HOME/tmp https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
+	tar -C $HOME/tmp -zxvf $HOME/tmp/nvim-linux-x86_64.tar.gz
 	mkdir -p $HOME/.local/bin
-	mv $HOME/tmp/nvim-linux64 $HOME/.local/bin/
-	ln -s $HOME/.local/bin/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
-	rm $HOME/tmp/nvim-linux64.tar.gz
+	mv $HOME/tmp/nvim-linux-x86_64 $HOME/.local/bin/
+	ln -s $HOME/.local/bin/nvim-linux-x86_64/bin/nvim $HOME/.local/bin/nvim
+	rm $HOME/tmp/nvim-linux-x86_64.tar.gz
 fi
 
 {
