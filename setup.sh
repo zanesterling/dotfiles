@@ -165,9 +165,23 @@ cp -R .config/nvim $HOME/.config
 
 {
 	echo
-	echo "${bold}5.3 Install nvim plugins.${normal}"
+	echo "${bold}5.3 Install tree-sitter-cli.${normal}"
 } 2>/dev/null
-# $HOME/.local/bin/nvim +PlugInstall +qall
+if [ ! -f $HOME/.local/bin/tree-sitter ]
+then
+	wget -P $HOME/tmp https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz
+	gunzip $HOME/tmp/tree-sitter-linux-x64.gz
+	mkdir -p $HOME/.local/bin/
+	mv $HOME/tmp/tree-sitter-linux-x64 $HOME/.local/bin/tree-sitter
+	chmod +x $HOME/.local/bin/tree-sitter
+	rm -f $HOME/tmp/tree-sitter-linux-x64.gz
+fi
+
+{
+	echo
+	echo "${bold}5.4 Install nvim plugins.${normal}"
+} 2>/dev/null
+$HOME/.local/bin/nvim +PlugInstall +qall
 
 {
 	echo
