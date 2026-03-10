@@ -22,6 +22,7 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 
 	" goto-preview, for previewing gotodef in floating windows
+	Plug 'rmagatti/logger.nvim'
 	Plug 'rmagatti/goto-preview'
 call plug#end()
 

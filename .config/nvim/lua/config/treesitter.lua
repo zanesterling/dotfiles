@@ -21,20 +21,35 @@ function table.except(super, sub)
   return result
 end
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 local treesitter = require('nvim-treesitter')
-treesitter.setup()
-treesitter.install(table.except({ "lua", "rust", "vim" }, treesitter.get_installed()))
+treesitter.setup {
+	install_dir = "~/.nvim-treesitter-parsers"
+}
+treesitter.install(table.except({ "lua", "rust", "vim", "python" }, treesitter.get_installed()))
 
 vim.api.nvim_create_autocmd('FileType', {
 	callback = function(args)
 		if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match))
 		then
-			vim.treesitter.start(args.buf)
+			vim.treesitter.start()
 			-- folds, provided by neovim
 			vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 			vim.wo.foldmethod = 'expr'
 			-- indentation, provided by nvim-treesitter
-			--vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end
 	end,
 })
