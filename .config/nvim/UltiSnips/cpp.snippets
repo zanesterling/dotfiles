@@ -1,0 +1,20 @@
+snippet foreach "A foreach loop over an array."
+int ${1:Name}Count = ArrayCount(${2:MyArray});
+for (int $1Index = 0; $1Index < $1Count; $1Index++) {
+  ${3:type} *$1 = &$2[$1Index];
+  ${0:${VISUAL}}
+}
+endsnippet
+
+snippet behavior "SetFoo for behavior foo"
+void Set${1:Name}(
+  steering_behaviors *Behaviors,
+  bool32 On,
+  real32 Weight,
+  ${2:Args}
+) {
+	Behaviors->$1On     = On;
+	Behaviors->$1Weight = Weight;
+	${0:${VISUAL}}
+}
+endsnippet

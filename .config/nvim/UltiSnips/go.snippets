@@ -1,0 +1,8 @@
+snippet rpcdef "Definition of an RPC handler"
+func (s *Server) ${1:Foo}(ctx context.Context, req *${2:foo}_pb.$1Request) (*$2_pb.$1Response, error) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet rpccall "Call an RPC"
+endsnippet

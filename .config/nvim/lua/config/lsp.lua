@@ -1,4 +1,5 @@
 -- Setup language servers.
+-- To see a list of all language servers, see :help lspconfig-all
 vim.lsp.enable('rust_analyzer')
 vim.lsp.config('rust_analyzer', {
   -- Server-specific settings. See `:help lspconfig-setup`
@@ -10,6 +11,7 @@ vim.lsp.config('rust_analyzer', {
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('gopls')
 vim.lsp.enable('zls')
+vim.lsp.enable('ty')
 
 -- disable format-on-save from `ziglang/zig.vim`
 vim.g.zig_fmt_autosave = 0
@@ -56,3 +58,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = '',
+			[vim.diagnostic.severity.WARN]  = '',
+		},
+		linehl = {
+		},
+		numhl = {
+			[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+			[vim.diagnostic.severity.WARN] = 'WarningMsg',
+		},
+	}
+})

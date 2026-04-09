@@ -24,8 +24,9 @@ call plug#begin()
 	" goto-preview, for previewing gotodef in floating windows
 	Plug 'rmagatti/logger.nvim'
 	Plug 'rmagatti/goto-preview'
-call plug#end()
 
+	Plug 'SirVer/ultisnips'
+call plug#end()
 
 lua require('config/treesitter')
 lua require('config/lsp')
@@ -88,3 +89,34 @@ nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 
 nnoremap <c-w>t <cmd>tab split<CR>
+
+" UltiSnips stuff
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
+
+" Set FZF colors based on the vim colorscheme
+let g:fzf_colors =
+\ { 'fg':         ['fg', 'Normal'],
+  \ 'bg':         ['bg', 'Normal'],
+  \ 'preview-bg': ['bg', 'NormalFloat'],
+  \ 'hl':         ['fg', 'Comment'],
+  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':        ['fg', 'Statement'],
+  \ 'info':       ['fg', 'PreProc'],
+  \ 'border':     ['fg', 'Ignore'],
+  \ 'prompt':     ['fg', 'Conditional'],
+  \ 'pointer':    ['fg', 'Exception'],
+  \ 'marker':     ['fg', 'Keyword'],
+  \ 'spinner':    ['fg', 'Label'],
+  \ 'header':     ['fg', 'Comment'] }
+
+"lua vim.pack.add({ { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin', } })
+"lua require('catppuccin').setup({ flavour = "latte" })
+lua vim.pack.add({ { src = "https://github.com/rktjmp/lush.nvim" } })
+lua vim.pack.add({ { src = "https://github.com/zenbones-theme/zenbones.nvim" } })
+lua vim.g.zenbones = { lightness = 'bright', darken_noncurrent_window = 'true' }
+set termguicolors
+set background=light
+colorscheme zenbones
+

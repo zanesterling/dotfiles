@@ -39,7 +39,7 @@ set re=2 " NFA-based regex engine, should be faster than default.
 
 
 " Colorscheme
-silent! colorscheme dracula
+"silent! colorscheme shine
 
 
 " ???

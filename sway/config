@@ -55,13 +55,18 @@ output $laptop-monitor {
 #
 # Comment this out if you DC from the monitor.
 
-set $office-monitor-hdmi 'Dell Inc. DELL U2725QE GFWJ734'
+set $office-monitor-hdmi "DP-5"
 set $office-monitor-thunderbolt "DP-7"
-output $office-monitor-hdmi disable
+output $office-monitor-hdmi enable
 output $office-monitor-thunderbolt enable
-set $office-monitor $office-monitor-thunderbolt
+set $office-monitor $office-monitor-hdmi
 
-output $office-monitor {
+output $office-monitor-hdmi {
+    scale 1
+    pos -860 -2160
+    mode 3840x2160@60Hz
+}
+output $office-monitor-thunderbolt {
     scale 1
     pos -860 -2160
     mode 3840x2160@60Hz
@@ -332,3 +337,5 @@ include /etc/sway/config.d/*
 exec wl-paste -t text --watch clipman store --no-persist
 
 exec $HOME/dotfiles/sway/xdp-wayland-handshake.sh
+
+seat seat0 xcursor_theme default 20
