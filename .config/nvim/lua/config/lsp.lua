@@ -8,10 +8,12 @@ vim.lsp.config('rust_analyzer', {
   },
 })
 
+-- List available LSPs using :help lspconfig-all
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('gopls')
 vim.lsp.enable('zls')
 vim.lsp.enable('ty')
+vim.lsp.enable('buf_ls')
 
 -- disable format-on-save from `ziglang/zig.vim`
 vim.g.zig_fmt_autosave = 0

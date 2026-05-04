@@ -83,3 +83,5 @@ source ~/.zsh_local
 #   $ git add a b c
 #   $ git amend-to TARGET_REV
 git config --global alias.amend-to '!f() { SHA=`git rev-parse "$1"`; git stash -k && git commit --fixup "$SHA" && GIT_SEQUENCE_EDITOR=true git rebase --interactive --autosquash "$SHA^" && git stash pop; }; f'
+git config --global alias.unstage '!f() { git restore --staged "$1"; }; f'
+git config --global alias.unadd '!f() { git restore --staged "$1"; }; f'
