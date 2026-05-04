@@ -14,7 +14,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
@@ -55,7 +55,7 @@ output $laptop-monitor {
 #
 # Comment this out if you DC from the monitor.
 
-set $office-monitor-hdmi "DP-5"
+set $office-monitor-hdmi "DP-4"
 set $office-monitor-thunderbolt "DP-7"
 output $office-monitor-hdmi enable
 output $office-monitor-thunderbolt enable
@@ -63,12 +63,12 @@ set $office-monitor $office-monitor-hdmi
 
 output $office-monitor-hdmi {
     scale 1
-    pos -860 -2160
+    pos -3840 -1080
     mode 3840x2160@60Hz
 }
 output $office-monitor-thunderbolt {
     scale 1
-    pos -860 -2160
+    pos -3840 -1080
     mode 3840x2160@60Hz
 }
 workspace  1 output $office-monitor
